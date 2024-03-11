@@ -1,15 +1,15 @@
 {
-  "name": "Web Push Test",
-  "short_name": "WebPushTest",
+  "name": "YS Well-Being",
+  "short_name": "YSWellBeing",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#90cdf4",
-  "theme_color": "#90cdf4",
+  "background_color": "ba890b",
+  "theme_color": "#ba890b",
   "orientation": "portrait-primary",
   "icons": [
     {
       "src": "bell2.png",
-      "sizes": "500x500",
+      "sizes": "512x512",
       "type": "image&#x2F;png"
     },
     {
