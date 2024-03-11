@@ -1,5 +1,4 @@
 import { useState } from "react"
-import Image from "next/image"
 
 export default function Button(props: {
   text: string
@@ -11,17 +10,6 @@ export default function Button(props: {
   const [hovered, setHovered] = useState(false)
   return (
     <>
-      <Image
-        src="/rocket.svg"
-        className={
-          "inline-block my-6 rocket " +
-          (hovered && !props.disabled && !props.loading ? "launch" : "") +
-          (props.loading ? "weave" : "")
-        }
-        alt="rocket"
-        width={36}
-        height={36}
-      />
       <button
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
