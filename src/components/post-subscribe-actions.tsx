@@ -1,7 +1,5 @@
 import React from "react"
 import Button from "./button"
-import TopicSubscriberWrapper from "./topic-subscriber-wrapper"
-import { topics } from "@/constants/topics"
 import magicBell from "@/services/magicBell"
 
 /**
@@ -16,9 +14,9 @@ interface IProps {
 }
 
 export default function PostSubscribeActions(props: IProps) {
-  const handleResend = async () => {
+  const handleReminder = async () => {
     try {
-      await magicBell.sendNotification("hn_random")
+      await magicBell.sendNotification("welcome")
     } catch (error: any) {
       props.onError(error.message)
     }
@@ -29,41 +27,19 @@ export default function PostSubscribeActions(props: IProps) {
     <>
       {props.interactive ? (
         <Button
-          onClick={handleResend}
-          text="Send me a random HN post"
+          onClick={handleReminder}
+          text="Send me a reminder!!!"
           classname="bg-primary"
           disabled={false}
         />
       ) : (
         <Button
-          text="Notification on its way!"
+          text="Reminder sending..."
           classname="bg-green-500"
           disabled={true}
           loading
         />
       )}
-      <div className="text-purple-300 mb-4">OR</div>
-      <TopicSubscriberWrapper
-        renderDescription={() => (
-          <span>
-            {" "}
-            Now that you have webpush successfully enabled, subscribe to any of
-            the{" "}
-            <a
-              className="text-text"
-              href="https://news.ycombinator.com/"
-              target="_blank"
-            >
-              HackerNews
-            </a>{" "}
-            feeds above and receive a relevant notification about top posts
-            every 6 hours. Unsubscribe at any time.
-          </span>
-        )}
-        topics={Object.values(topics)}
-        interactive={props.interactive}
-        onAfterInteract={props.onAfterInteract}
-      />
     </>
   )
 }
