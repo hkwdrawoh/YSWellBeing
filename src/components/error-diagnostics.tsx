@@ -1,7 +1,6 @@
 import React, { useEffect } from "react"
 import va from "@vercel/analytics"
 
-import IosInstructionalVideo from "./ios-instructional-video"
 import useDeviceInfo, { DeviceInfo } from "@/hooks/useDeviceInfo"
 import { clientSettings } from "@magicbell/react-headless"
 import minVersionCheck from "@/utils/minVersionCheck"
@@ -13,6 +12,7 @@ import minVersionCheck from "@/utils/minVersionCheck"
 export default function ErrorDiagnostics(props: { error: string }) {
   const info = useDeviceInfo()
   useEffect(() => {
+    // @ts-ignore
     va.track("error", {
       ...info,
       error: props.error,
@@ -36,7 +36,7 @@ export default function ErrorDiagnostics(props: { error: string }) {
             }
             return (
               <p>
-                {`It looks like you denied notification permissions for WebPushTest.com in ${info.browserName}. To receive push notifications, please permit us to notify you.`}
+                {`It looks like you denied notification permissions for YS Well-Being in ${info.browserName}. To receive push notifications, please permit us to notify you.`}
               </p>
             )
           }
@@ -49,7 +49,6 @@ export default function ErrorDiagnostics(props: { error: string }) {
                 return (
                   <div>
                     {`It looks like you have not yet installed this app on your device. Please install it using the instructions below, and try again.`}
-                    <IosInstructionalVideo withCaption={false} />
                   </div>
                 )
             }
@@ -65,7 +64,7 @@ export default function ErrorDiagnostics(props: { error: string }) {
           case "denied":
             return (
               <p>
-                {`It looks like you denied notification permissions for WebPushTest.com in ${info.browserName}. To receive push notifications, please permit us to notify you.`}
+                {`It looks like you denied notification permissions for YS Well-Being in ${info.browserName}. To receive push notifications, please permit us to notify you.`}
               </p>
             )
         }
