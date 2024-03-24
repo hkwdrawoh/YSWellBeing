@@ -11,6 +11,7 @@ export type DeviceInfo = {
   browserName: string
   osName: string
   deviceType: string
+  userId: string
   isPrivate: boolean
   osVersion: string
   notificationApiPermissionStatus: string
@@ -25,7 +26,7 @@ export function DeviceInfoProvider(props: { children: React.ReactNode }) {
   const [info, setInfo] = useState<DeviceInfo | null>(null)
   useEffect(() => {
     // initialize device info
-    setInfo({
+      setInfo({
       standalone: window.matchMedia("(display-mode: standalone)").matches, // true if PWA is installed
       browserName,
       osName,
@@ -37,6 +38,11 @@ export function DeviceInfoProvider(props: { children: React.ReactNode }) {
         typeof Notification !== "undefined"
           ? Notification.permission
           : "Notification API unsupported",
+          // @ts-ignore
+      userID:
+        typeof localStorage.getItem("magicbell:userId") !== "undefined"
+          ? localStorage.getItem("magicbell:userId")
+          : "000",
       serviceWorkerStatus: "fetching",
       subscriptionState: "pending",
       topics: [],
