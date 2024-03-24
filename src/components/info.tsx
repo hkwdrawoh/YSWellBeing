@@ -28,13 +28,13 @@ export default function Info({ info }: { info: DeviceInfo }) {
         }}
       >
         <ul
-          className="grid grid-cols-2 gap-x-8 gap-y-2 bg-section text-gray-100 p-4 rounded-lg text-xs md:text-lg relative pb-10"
+          className="grid grid-cols-2 gap-x-8 gap-y-2 bg-section1 text-gray-100 p-4 rounded-lg text-xs md:text-lg relative pb-10"
           ref={infoRef}
         >
           {info &&
             Object.entries(info).map(([key, value]) => (
               <li key={key} className="contents">
-                <code className="text-right overflow-hidden text-ellipsis text-gray-400">
+                <code className="text-right overflow-hidden text-ellipsis text-text1">
                   {key}
                 </code>
                 <code className="text-left">{String(value)}</code>
