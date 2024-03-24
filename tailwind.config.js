@@ -25,6 +25,7 @@ module.exports = {
         section2: "#BA550B",
         section3: "#94995A",
         section4: "#A06840",
+        background0: "#F6F0EC",
         background1: "#F9FBE1",
       },
     },
