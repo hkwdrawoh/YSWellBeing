@@ -11,6 +11,7 @@ import Subscriber from "@/components/subscriber";
 import useDeviceInfo, {DeviceInfo} from "@/hooks/useDeviceInfo";
 import minVersionCheck from "@/utils/minVersionCheck";
 import MainMenu from "@/components/menu";
+import Header from "@/components/header";
 
 const resendDelay = 10 * 1000;
 const enableSuccessMessage = false;
@@ -89,7 +90,6 @@ export default function Home() {
         }
         if (state.status === "success" || info.subscriptionState === "subscribed" || true) {
             return <>
-                <h1>{page}</h1>
                 <MainMenu page={page} setPage={setPage}/>
 
 
@@ -177,12 +177,8 @@ export default function Home() {
 
     return (
         <>
-            <header
-                className={
-                    "border-primary border-opacity-50 border-b-2 leading-8 text-lg font-bold text-gray-200 py-4 bg-primary text-center"
-                }
-            >
-                <h1>Welcome to YS Well-Being!</h1>
+            <header>
+                <Header page={page} setPage={setPage} />
             </header>
 
             <Head>
@@ -206,7 +202,7 @@ export default function Home() {
                 <meta property="og:url" content="https://yswellbeing.howardwkh.pp.ua"/>
                 <meta property="og:type" content="Website"/>
             </Head>
-            <main className={"w-full text-text1 pb-10 px-5 no-select"}>
+            <main className={"w-full text-text1 no-select overflow-x-hidden"}>
                 {!info ? (
                     <div>Fetching Info</div>
                 ) : (
@@ -215,7 +211,7 @@ export default function Home() {
                             <ContentWrapper message={""}>{actions(state)}</ContentWrapper>
                             {result(state)}
                         </div>
-                        <Disclaimer/>
+                        {/*<Disclaimer/>*/}
                     </>
                 )}
             </main>
