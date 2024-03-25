@@ -177,7 +177,7 @@ export default function Home() {
 
     return (
         <>
-            <header>
+            <header className="no-select">
                 <Header page={page} setPage={setPage} />
             </header>
 
