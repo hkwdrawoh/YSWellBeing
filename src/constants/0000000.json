@@ -10,7 +10,18 @@
       "Surname": ""
     },
     "CurrentTreatment": {
+      "LastVisit": "",
+      "SymptomEN": "",
+      "SymptomTC": "",
+      "TreatmentDay": "",
+      "TreatmentFreq": "",
+      "BeforeMeal": true,
+      "Instruction": [
 
+      ],
+      "Ingredients": [
+
+      ]
     },
     "BodyConditions": {
 

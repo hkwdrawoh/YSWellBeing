@@ -6,11 +6,22 @@
     "PatientID": "9999999",
     "PersonalInfo": {
       "Title": "",
-      "FirstName": "Admin",
+      "FirstName": "Administrator",
       "Surname": ""
     },
     "CurrentTreatment": {
+      "LastVisit": "",
+      "SymptomEN": "",
+      "SymptomTC": "",
+      "TreatmentDay": "",
+      "TreatmentFreq": "",
+      "BeforeMeal": true,
+      "Instruction": [
 
+      ],
+      "Ingredients": [
+
+      ]
     },
     "BodyConditions": {
 

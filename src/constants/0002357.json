@@ -10,7 +10,37 @@
       "Surname": "Chan"
     },
     "CurrentTreatment": {
+      "LastVisit": "2024-03-12T12:00:00+08:00",
+      "SymptomEN": "Blood Vacuity",
+      "SymptomTC": "血虛",
+      "TreatmentDay": "3",
+      "TreatmentFreq": "3",
+      "BeforeMeal": true,
+      "Instruction": [
 
+      ],
+      "Ingredients": [
+        {
+          "HerbEN": "Heterophylly Falsestarwort Root",
+          "HerbTC": "太子參",
+          "Weight": "4.0"
+        },
+        {
+          "HerbEN": "Barbary Wolfberry Fruit",
+          "HerbTC": "枸杞子",
+          "Weight": "1.0"
+        },
+        {
+          "HerbEN": "Japanese Galangal Rhizome",
+          "HerbTC": "山姜",
+          "Weight": "0.5"
+        },
+        {
+          "HerbEN": "Suberect Spatholobus Stem",
+          "HerbTC": "雞血藤",
+          "Weight": "0.5"
+        }
+      ]
     },
     "BodyConditions": {
 

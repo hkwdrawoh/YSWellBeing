@@ -10,7 +10,42 @@
       "Surname": "Lai"
     },
     "CurrentTreatment": {
+      "LastVisit": "2024-03-23T12:00:00+08:00",
+      "SymptomEN": "Insomnia",
+      "SymptomTC": "不寐",
+      "TreatmentDay": "7",
+      "TreatmentFreq": "2",
+      "BeforeMeal": false,
+      "Instruction": [
 
+      ],
+      "Ingredients": [
+        {
+          "HerbEN": "Spine Date Seed",
+          "HerbTC": "酸棗仁",
+          "Weight": "3.5"
+        },
+        {
+          "HerbEN": "Indian Bread",
+          "HerbTC": "茯苓",
+          "Weight": "3.0"
+        },
+        {
+          "HerbEN": "Common Anemarrhena Rhizome",
+          "HerbTC": "知母",
+          "Weight": "1.5"
+        },
+        {
+          "HerbEN": "Szechwan Lovage Rhizome",
+          "HerbTC": "川芎",
+          "Weight": "1.5"
+        },
+        {
+          "HerbEN": "Liquorice Root",
+          "HerbTC": "甘草",
+          "Weight": "0.5"
+        }
+      ]
     },
     "BodyConditions": {
 
