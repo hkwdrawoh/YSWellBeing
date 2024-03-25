@@ -5,6 +5,7 @@ import PID0000000 from "@/constants/0000000.json"
 import PID0002357 from "@/constants/0002357.json"
 import PID0004689 from "@/constants/0004689.json"
 import PID9999999 from "@/constants/9999999.json"
+import {formatDate, formatName} from "@/components/functions";
 
 
 export default function MainMenu(props: {
@@ -66,9 +67,9 @@ export default function MainMenu(props: {
             return <div className="px-4 pt-4">
                 <div className="grid grid-cols-4">
                     <div className="col-span-3 text-left">
-                        <span className="text-xl">Hello, {patientData.PersonalInfo.Title} {patientData.PersonalInfo.FirstName} {patientData.PersonalInfo.Surname}</span>
+                        <span className="text-xl">Hello, {formatName(patientData.PersonalInfo)}</span>
                         <br />
-                        <span className="text-md">Last clinic visit: 22 Feb 2024</span>
+                        <span className="text-md">Last clinic visit: {formatDate(patientData.CurrentTreatment.LastVisit)}</span>
                     </div>
                     <button
                         className="text-center my-auto grid items-center justify-center gap-x-4 gap-y-8 bg-primary rounded-lg border-section1 border-opacity-50 border-2 w-full h-3/4"
@@ -83,7 +84,7 @@ export default function MainMenu(props: {
                     // onClick={() => props.setPage("hi")}
                 >
                     <span className="text-text2 text-xl text-left underline">Next Intake</span>
-                    <span className="text-text2 text-lg">Reminder in: 3 hr 40 min</span>
+                    <span className="text-text2 text-lg">Reminder in: - hr -- min</span>
                 </button>
 
                 <button
@@ -91,7 +92,7 @@ export default function MainMenu(props: {
                     onClick={() => props.setPage(patientID === "0000000" ? "login" : "treatment")}
                 >
                     <span className="text-text2 text-xl text-left underline">Current Treatment</span>
-                    <span className="text-text2 text-lg">Blood Vacuity (血虛)</span>
+                    <span className="text-text2 text-lg">{patientData.CurrentTreatment.SymptomEN} ({patientData.CurrentTreatment.SymptomTC})</span>
                 </button>
 
                 <button
