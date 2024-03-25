@@ -1,0 +1,19 @@
+{
+  "type": "PatientData",
+  "version": "1.0",
+  "generated_timestamp": "2024-03-25T12:00:00+08:00",
+  "data": {
+    "PatientID": "0000000",
+    "PersonalInfo": {
+      "Title": "",
+      "FirstName": "Guest",
+      "Surname": ""
+    },
+    "CurrentTreatment": {
+
+    },
+    "BodyConditions": {
+
+    }
+  }
+}
