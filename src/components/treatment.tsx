@@ -3,6 +3,7 @@ import React from "react";
 
 export default function CurrentTreatment(props: {
     setPage: Function
+    patientData: Object
 }) {
     return <>
         <div className="px-4">

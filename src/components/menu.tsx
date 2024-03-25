@@ -1,13 +1,23 @@
 import React, {useEffect, useState} from "react";
 import CurrentTreatment from "@/components/treatment";
 import Login from "@/components/login";
+import PID0000000 from "@/constants/0000000.json"
+import PID0002357 from "@/constants/0002357.json"
+import PID0004689 from "@/constants/0004689.json"
+import PID9999999 from "@/constants/9999999.json"
 
 
 export default function MainMenu(props: {
     page: string
     setPage: Function
 }) {
+    const Data_0000000 = PID0000000.data;
+    const Data_0002357 = PID0002357.data;
+    const Data_0004689 = PID0004689.data;
+    const Data_9999999 = PID9999999.data;
+
     const [patientID, setPID] = useState("");
+    const [patientData, setPData] = useState(Data_0000000);
 
     function loginPressed() {
         if (patientID === "0000000") {
@@ -19,6 +29,13 @@ export default function MainMenu(props: {
 
     function setPatientID(id) {
         localStorage.setItem("YSWB:patientId", id)
+        const userData = localStorage.getItem("YSWB:ID=" + id)
+        if (!userData) {
+            setPData(eval('Data_' + id))
+            localStorage.setItem("YSWB:ID=" + id, JSON.stringify(eval('Data_' + id)))
+        } else {
+            setPData(JSON.parse(userData))
+        }
         setPID(id)
     }
 
@@ -43,13 +60,13 @@ export default function MainMenu(props: {
             return <Login setPatientID={setPatientID} setPage={props.setPage} />
 
         case "treatment":
-            return <CurrentTreatment setPage={props.setPage} />
+            return <CurrentTreatment setPage={props.setPage} patientData={patientData} />
 
         default:
             return <div className="px-4 pt-4">
                 <div className="grid grid-cols-4">
                     <div className="col-span-3 text-left">
-                        <span className="text-xl">Hello, {patientID}</span>
+                        <span className="text-xl">Hello, {patientData.PersonalInfo.Title} {patientData.PersonalInfo.FirstName} {patientData.PersonalInfo.Surname}</span>
                         <br />
                         <span className="text-md">Last clinic visit: 22 Feb 2024</span>
                     </div>
