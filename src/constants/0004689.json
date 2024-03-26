@@ -47,8 +47,17 @@
         }
       ]
     },
-    "BodyConditions": {
-
-    }
+    "BodyConditions": [
+      {
+        "RecordDate": "24 Mar 2024",
+        "Q1a": 64,
+        "Q1b": 0,
+        "Q1c": 0,
+        "Q2": 3,
+        "Q3": 3,
+        "Q4": 4,
+        "Comment": ""
+      }
+    ]
   }
 }
