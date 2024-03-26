@@ -14,6 +14,21 @@ export default function Header(props: {
             goPage = "home";
             break;
 
+        case "condition":
+            header_text = "Today's Body Condition";
+            goPage = "home";
+            break;
+
+        case "progress":
+            header_text = "My Recovery Progress";
+            goPage = "home";
+            break;
+
+        case "admin":
+            header_text = "YS WELL-BEING ADMIN";
+            goPage = "home";
+            break;
+
         default:
             header_text = "YS WELL-BEING";
             goPage = "home";
@@ -21,7 +36,9 @@ export default function Header(props: {
 
     return <>
         <div className="grid grid-cols-5 bg-primary text-text2 py-4 text-center text-xl font-bold">
-            <button onClick={() => props.setPage(goPage)} disabled={props.page === "home"}>{props.page === "home" ? "" : "〈"}</button>
+            <button onClick={() => props.setPage(goPage)} disabled={props.page === "home" || props.page === "admin"}>
+                {props.page === "home" || props.page === "admin" ? "" : "〈"}
+            </button>
             <span className="col-span-3">{header_text}</span>
         </div>
     </>

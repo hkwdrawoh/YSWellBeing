@@ -6,6 +6,9 @@ import PID0002357 from "@/constants/0002357.json"
 import PID0004689 from "@/constants/0004689.json"
 import PID9999999 from "@/constants/9999999.json"
 import {formatDate, formatName} from "@/components/functions";
+import TodayCondition from "@/components/condition";
+import RecoveryProgress from "@/components/progress";
+import AdminPage from "@/components/admin";
 
 
 export default function MainMenu(props: {
@@ -25,6 +28,7 @@ export default function MainMenu(props: {
             props.setPage("login")
         } else {
             setPatientID("0000000")
+            props.setPage("home")
         }
     }
 
@@ -51,17 +55,29 @@ export default function MainMenu(props: {
         } else {
             setPatientID(userId)
         }
+        if (userId === "9999999") {
+            props.setPage("admin")
+        }
     }, [])
 
-    switch (props.page) {
-        case "hi":
-            return
+    // @ts-ignore
+    let todays_record = patientData.BodyConditions.filter((a) => a.RecordDate === formatDate(new Date()));
 
+    switch (props.page) {
         case "login":
             return <Login setPatientID={setPatientID} setPage={props.setPage} />
 
         case "treatment":
             return <CurrentTreatment setPage={props.setPage} patientData={patientData} />
+
+        case "condition":
+            return <TodayCondition patientData={patientData} setPData={setPData}/>
+
+        case "progress":
+            return <RecoveryProgress />
+
+        case "admin":
+            return <AdminPage loginPressed={loginPressed} />
 
         default:
             return <div className="px-4 pt-4">
@@ -92,17 +108,21 @@ export default function MainMenu(props: {
                     onClick={() => props.setPage(patientID === "0000000" ? "login" : "treatment")}
                 >
                     <span className="text-text2 text-xl text-left underline">Current Treatment</span>
-                    <span className="text-text2 text-lg">{patientData.CurrentTreatment.SymptomEN} ({patientData.CurrentTreatment.SymptomTC})</span>
+                    <span className="text-text2 text-lg">{patientID === "0000000" ? "Login to view your treatment." : patientData.CurrentTreatment.SymptomEN + " (" + patientData.CurrentTreatment.SymptomTC + ")"}</span>
                 </button>
 
                 <button
-                    className="text-center my-5 grid gap-x-4 gap-y-4 bg-section3 p-4 rounded-lg border-primary border-opacity-50 border-2 w-full">
+                    className="text-center my-5 grid gap-x-4 gap-y-4 bg-section3 p-4 rounded-lg border-primary border-opacity-50 border-2 w-full"
+                    onClick={() => props.setPage(patientID === "0000000" ? "login" : "condition")}
+                >
                     <span className="text-text2 text-xl text-left underline">Today’s Body Condition</span>
-                    <span className="text-text2 text-lg">Condition not recorded!</span>
+                    <span className="text-text2 text-lg">{patientID === "0000000" ? "Login to record your condition." : (todays_record[0] ? "Recorded, thank you!" : "Condition not recorded!")}</span>
                 </button>
 
                 <button
-                    className="text-center my-5 grid gap-x-4 gap-y-4 bg-section4 p-4 rounded-lg border-primary border-opacity-50 border-2 w-full">
+                    className="text-center my-5 grid gap-x-4 gap-y-4 bg-section4 p-4 rounded-lg border-primary border-opacity-50 border-2 w-full"
+                    onClick={() => props.setPage(patientID === "0000000" ? "login" : "progress")}
+                >
                     <span className="text-text2 text-xl text-left underline">My Recovery Progress</span>
                     <span className="text-text2 text-lg">&emsp;</span>
                 </button>

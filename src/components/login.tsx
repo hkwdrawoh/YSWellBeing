@@ -40,7 +40,11 @@ export default function Login(props: {
         }
         setErrMsg("")
         props.setPatientID(patientID)
-        props.setPage("home")
+        if (patientID === "9999999") {
+            props.setPage("admin");
+        } else {
+            props.setPage("home");
+        }
     }
 
     return <>
@@ -63,13 +67,13 @@ export default function Login(props: {
 
             <div className="grid gap-y-4 py-4">
                 <button
-                    className="mx-auto py-1 bg-primary rounded-lg border-background1 border-opacity-50 border-2 w-3/5"
+                    className="mx-auto py-1 bg-primary rounded-lg border-background1 border-2 w-3/5"
                     onClick={tryLogin}
                 >
                     <span className="text-text2 text-lg">Login</span>
                 </button>
                 <button
-                    className="mx-auto py-1 bg-background1 rounded-lg border-primary border-opacity-50 border-2 w-3/5"
+                    className="mx-auto py-1 bg-background1 rounded-lg border-primary border-2 w-3/5"
                     onClick={() => setErrMsg('Your password consists of your surname in lower case, followed by your telephone number. E.g. "chan91234567". ')}
                 >
                     <span className="text-text1 text-lg">Forget Password?</span>
