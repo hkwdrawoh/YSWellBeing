@@ -27,6 +27,13 @@ module.exports = {
         section4: "#A06840",
         background0: "#F6F0EC",
         background1: "#F9FBE1",
+        background2: "#F8DEBD",
+        option0 : "#AAAAAA",
+        option1 : "#D12626",
+        option2 : "#E58B26",
+        option3 : "#F9F025",
+        option4 : "#BCF751",
+        option5 : "#7EFE7C"
       },
     },
   },
