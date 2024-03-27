@@ -24,6 +24,10 @@ body,
     overflow: visible;
 }
 
+abbr {
+    text-decoration: none;
+}
+
 @layer base {
 
     .hover-button:not(:disabled) {
@@ -111,10 +115,6 @@ body,
         animation: hide 100ms ease-in;
     }
 
-    .ToastRoot[data-swipe='move'] {
-        transform: translateX(var(--radix-toast-swipe-move-x));
-    }
-
     .ToastRoot[data-swipe='cancel'] {
         transform: translateX(0);
         transition: transform 200ms ease-out;
@@ -162,21 +162,4 @@ body,
         }
     }
 
-    @keyframes swipeOut {
-        from {
-            transform: translateX(var(--radix-toast-swipe-end-x));
-        }
-
-        to {
-            transform: translateX(calc(100% + var(--viewport-padding)));
-        }
-    }
-
-    .ToastTitle {
-        grid-area: title;
-        margin-bottom: 5px;
-        font-weight: 500;
-        color: var(--slate12);
-        font-size: 15px;
-    }
 }
