@@ -74,7 +74,7 @@ export default function MainMenu(props: {
             return <TodayCondition patientData={patientData} setPData={setPData}/>
 
         case "progress":
-            return <RecoveryProgress />
+            return <RecoveryProgress patientData={patientData} />
 
         case "admin":
             return <AdminPage loginPressed={loginPressed} />
@@ -126,6 +126,13 @@ export default function MainMenu(props: {
                     <span className="text-text2 text-xl text-left underline">My Recovery Progress</span>
                     <span className="text-text2 text-lg">&emsp;</span>
                 </button>
+
+                <span className="bg-option0"></span>
+                <span className="bg-option1"></span>
+                <span className="bg-option2"></span>
+                <span className="bg-option3"></span>
+                <span className="bg-option4"></span>
+                <span className="bg-option5"></span>
             </div>
     }
 }

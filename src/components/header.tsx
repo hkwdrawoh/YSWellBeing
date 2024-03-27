@@ -35,11 +35,11 @@ export default function Header(props: {
     }
 
     return <>
-        <div className="grid grid-cols-5 bg-primary text-text2 py-4 text-center text-xl font-bold">
+        <div className="grid grid-cols-6 bg-primary text-text2 py-4 text-center text-xl font-bold">
             <button onClick={() => props.setPage(goPage)} disabled={props.page === "home" || props.page === "admin"}>
                 {props.page === "home" || props.page === "admin" ? "" : "〈"}
             </button>
-            <span className="col-span-3">{header_text}</span>
+            <span className="col-span-4">{header_text}</span>
         </div>
     </>
 }
