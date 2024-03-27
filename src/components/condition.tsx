@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {formatDate} from "@/components/functions";
+import {conditionScore, formatDate} from "@/components/functions";
 
 
 export default function TodayCondition(props: {
@@ -93,13 +93,6 @@ export default function TodayCondition(props: {
         props.setPData(new_PData);
         // @ts-ignore
         localStorage.setItem("YSWB:ID=" + props.patientData.PatientID, JSON.stringify(new_PData))
-    }
-
-    function overallScore() {
-        let numerator = Q2 + Q3 + Q4;
-        if (numerator === 0) {return 0}
-        let denominator = Math.sign(Q2) + Math.sign(Q3) + Math.sign(Q4);
-        return Math.round(numerator / denominator)
     }
 
     switch (currQ) {
@@ -212,7 +205,7 @@ export default function TodayCondition(props: {
                     </div>
 
                     <div className="grid grid-cols-3">
-                        <span className={`text-xl font-bold col-span-2 px-4 py-1 ${("bg-option" + String(overallScore()))} mr-auto rounded-3xl`}>{Q5_options[5 - overallScore()]}</span>
+                        <span className={`text-xl font-bold col-span-2 px-4 py-1 ${("bg-option" + String(conditionScore(Q2, Q3, Q4)))} mr-auto rounded-3xl`}>{Q5_options[5 - conditionScore(Q2, Q3, Q4)]}</span>
                         <button
                             className="mx-auto py-1 bg-primary rounded-lg border-background1 border-2 w-3/5"
                             onClick={() => setCurrQ(1)}

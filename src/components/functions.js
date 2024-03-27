@@ -8,3 +8,10 @@ export function formatDate(isoDate) {
     const options = {day: 'numeric', month: 'short', year: 'numeric'};
     return date.toLocaleDateString('en-UK', options)
 }
+
+export function conditionScore(Q2, Q3, Q4) {
+    let numerator = Q2 + Q3 + Q4;
+    if (numerator === 0) {return 0}
+    let denominator = Math.sign(Q2) + Math.sign(Q3) + Math.sign(Q4);
+    return Math.round(numerator / denominator)
+}
