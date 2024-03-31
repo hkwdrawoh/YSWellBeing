@@ -177,7 +177,7 @@ export default function Home() {
 
     return (
         <>
-            <header className="no-select">
+            <header className="no-select h-[3.5em] fixed top-0 w-full">
                 <Header page={page} setPage={setPage} />
             </header>
 
@@ -202,7 +202,7 @@ export default function Home() {
                 <meta property="og:url" content="https://yswellbeing.howardwkh.pp.ua"/>
                 <meta property="og:type" content="Website"/>
             </Head>
-            <main className={"w-full text-text1 no-select overflow-x-hidden"}>
+            <main className={"w-full text-text1 no-select overflow-x-hidden pt-[3.5em]"}>
                 {!info ? (
                     <div>Fetching Info</div>
                 ) : (
