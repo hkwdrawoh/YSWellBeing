@@ -10,14 +10,13 @@
       "Surname": "Lai"
     },
     "CurrentTreatment": {
-      "LastVisit": "2024-03-23T12:00:00+08:00",
+      "LastVisit": "2024-03-28T12:00:00+08:00",
       "SymptomEN": "Insomnia",
       "SymptomTC": "不寐",
       "TreatmentDay": "7",
       "TreatmentFreq": "2",
       "BeforeMeal": false,
       "Instruction": [
-
       ],
       "Ingredients": [
         {
@@ -45,21 +44,114 @@
           "HerbTC": "甘草",
           "Weight": "0.5"
         }
+      ],
+      "Prescriptions": [
+        {
+          "Date": "28 Mar 2024",
+          "Intakes": [
+            {
+              "Time": "10:45",
+              "Remarks": ""
+            },
+            {
+              "Time": "20:37",
+              "Remarks": ""
+            }
+          ]
+        },
+        {
+          "Date": "29 Mar 2024",
+          "Intakes": [
+            {
+              "Time": "11:00",
+              "Remarks": "Forget to bring"
+            },
+            {
+              "Time": "20:37",
+              "Remarks": ""
+            }
+          ]
+        },
+        {
+          "Date": "30 Mar 2024",
+          "Intakes": [
+            {
+              "Time": "11:05",
+              "Remarks": ""
+            },
+            {
+              "Time": "20:00",
+              "Remarks": "Forget to bring"
+            }
+          ]
+        },
+        {
+          "Date": "31 Mar 2024",
+          "Intakes": [
+            {
+              "Time": "11:02",
+              "Remarks": ""
+            },
+            {
+              "Time": "20:00",
+              "Remarks": "Expected"
+            }
+          ]
+        },
+        {
+          "Date": "1 Apr 2024",
+          "Intakes": [
+            {
+              "Time": "11:00",
+              "Remarks": "Expected"
+            },
+            {
+              "Time": "20:00",
+              "Remarks": "Expected"
+            }
+          ]
+        },
+        {
+          "Date": "2 Apr 2024",
+          "Intakes": [
+            {
+              "Time": "11:00",
+              "Remarks": "Expected"
+            },
+            {
+              "Time": "20:00",
+              "Remarks": "Expected"
+            }
+          ]
+        },
+        {
+          "Date": "3 Apr 2024",
+          "Intakes": [
+            {
+              "Time": "11:00",
+              "Remarks": "Expected"
+            },
+            {
+              "Time": "20:00",
+              "Remarks": "Expected"
+            }
+          ]
+        }
       ]
     },
     "BodyConditions": [
       {
-        "RecordDate": "24 Mar 2024",
+        "RecordDate": "28 Mar 2024",
         "Q1a": 45,
         "Q1b": 0,
         "Q1c": 0,
         "Q2": 3,
         "Q3": 3,
         "Q4": 4,
-        "Comment": ""
+        "Comment": "It takes time to recover. Keep going!"
       },
       {
-        "RecordDate": "25 Mar 2024",
+        "RecordDate": "29 Mar 2024",
         "Q1a": 45.5,
         "Q1b": 120,
         "Q1c": 80,

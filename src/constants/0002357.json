@@ -40,6 +40,73 @@
           "HerbTC": "雞血藤",
           "Weight": "0.5"
         }
+      ],
+      "Prescriptions": [
+        {
+          "Date": "25 Mar 2024",
+          "Intakes": [
+            {
+              "Time": "10:45",
+              "Remarks": ""
+            },
+            {
+              "Time": "20:37",
+              "Remarks": ""
+            }
+          ]
+        },
+        {
+          "Date": "26 Mar 2024",
+          "Intakes": [
+            {
+              "Time": "11:00",
+              "Remarks": "Forget to bring"
+            },
+            {
+              "Time": "20:37",
+              "Remarks": ""
+            }
+          ]
+        },
+        {
+          "Date": "27 Mar 2024",
+          "Intakes": [
+            {
+              "Time": "11:05",
+              "Remarks": ""
+            },
+            {
+              "Time": "20:00",
+              "Remarks": "Forget to bring"
+            }
+          ]
+        },
+        {
+          "Date": "28 Mar 2024",
+          "Intakes": [
+            {
+              "Time": "11:02",
+              "Remarks": ""
+            },
+            {
+              "Time": "20:00",
+              "Remarks": "Expected"
+            }
+          ]
+        },
+        {
+          "Date": "29 Mar 2024",
+          "Intakes": [
+            {
+              "Time": "11:00",
+              "Remarks": "Expected"
+            },
+            {
+              "Time": "20:00",
+              "Remarks": "Expected"
+            }
+          ]
+        }
       ]
     },
     "BodyConditions": [

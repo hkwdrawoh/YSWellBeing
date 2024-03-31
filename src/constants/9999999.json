@@ -17,10 +17,10 @@
       "TreatmentFreq": "",
       "BeforeMeal": true,
       "Instruction": [
-
       ],
       "Ingredients": [
-
+      ],
+      "Prescription": [
       ]
     },
     "BodyConditions": [
