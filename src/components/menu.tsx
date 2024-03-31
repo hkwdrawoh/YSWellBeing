@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from "react";
-import CurrentTreatment from "@/components/treatment";
 import Login from "@/components/login";
+import IntakeReminder from "@/components/reminder";
+import CurrentTreatment from "@/components/treatment";
+import TodayCondition from "@/components/condition";
+import RecoveryProgress from "@/components/progress";
+import AdminPage from "@/components/admin";
+import {formatDate, formatName} from "@/components/functions";
+
 import PID0000000 from "@/constants/0000000.json"
 import PID0002357 from "@/constants/0002357.json"
 import PID0004689 from "@/constants/0004689.json"
 import PID9999999 from "@/constants/9999999.json"
-import {formatDate, formatName} from "@/components/functions";
-import TodayCondition from "@/components/condition";
-import RecoveryProgress from "@/components/progress";
-import AdminPage from "@/components/admin";
 
 
 export default function MainMenu(props: {
@@ -67,6 +69,9 @@ export default function MainMenu(props: {
         case "login":
             return <Login setPatientID={setPatientID} setPage={props.setPage} />
 
+        case "reminder":
+            return <IntakeReminder patientData={patientData} setPData={setPData} />
+
         case "treatment":
             return <CurrentTreatment setPage={props.setPage} patientData={patientData} />
 
@@ -97,10 +102,10 @@ export default function MainMenu(props: {
 
                 <button
                     className="text-center my-5 grid gap-x-4 gap-y-4 bg-section1 p-4 rounded-lg border-primary border-opacity-50 border-2 w-full"
-                    // onClick={() => props.setPage("hi")}
+                    onClick={() => props.setPage(patientID === "0000000" ? "login" : "reminder")}
                 >
                     <span className="text-text2 text-xl text-left underline">Next Intake</span>
-                    <span className="text-text2 text-lg">Reminder in: - hr -- min</span>
+                    <span className="text-text2 text-lg">Next Reminder: --</span>
                 </button>
 
                 <button
