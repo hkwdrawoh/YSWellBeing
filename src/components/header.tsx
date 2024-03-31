@@ -9,6 +9,11 @@ export default function Header(props: {
             goPage = "home";
             break;
 
+        case "reminder":
+            header_text = "Next Intake Reminder";
+            goPage = "home";
+            break;
+
         case "treatment":
             header_text = "Current Treatment";
             goPage = "home";
