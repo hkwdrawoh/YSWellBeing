@@ -122,6 +122,7 @@ export default function RecoveryProgress(props: {
                         locale="en-UK"
                         tileClassName={tileClass}
                         defaultValue={new Date(selectedDate)}
+                        minDetail="month"
                     />
                     <div className="grid grid-cols-3">
                         <span className="text-xl font-bold text-left col-span-2">Selected Date: {selectedDate}</span>
