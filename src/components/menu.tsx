@@ -105,7 +105,13 @@ export default function MainMenu(props: {
                     onClick={() => props.setPage(patientID === "0000000" ? "login" : "reminder")}
                 >
                     <span className="text-text2 text-xl text-left underline">Next Intake</span>
-                    <span className="text-text2 text-lg">Next Reminder: --</span>
+                    <span className="text-text2 text-lg">
+                        {`Next Reminder:\u00A0
+                        ${patientID === "0000000" ? "N/A" :
+                        !patientData.CurrentTreatment.Prescriptions.filter((a) => a.Date === formatDate(new Date()))[0] ? "No Reminders for Today" :
+                        !patientData.CurrentTreatment.Prescriptions.filter((a) => a.Date === formatDate(new Date()))[0].Intakes.filter((a) => a.Remarks === "Expected")[0] ? "No Reminders for Today" :
+                        patientData.CurrentTreatment.Prescriptions.filter((a) => a.Date === formatDate(new Date()))[0].Intakes.filter((a) => a.Remarks === "Expected")[0].Time}`}
+                    </span>
                 </button>
 
                 <button
