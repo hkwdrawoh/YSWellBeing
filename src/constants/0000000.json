@@ -23,12 +23,8 @@
       "Prescriptions": [
         {
           "Date": "",
-          "Intakes": [
-            {
-              "Time": "",
-              "Remarks": ""
-            }
-          ]
+          "Time": "",
+          "Remarks": ""
         }
       ]
     },
