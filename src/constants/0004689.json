@@ -13,9 +13,9 @@
       "LastVisit": "2024-03-28T12:00:00+08:00",
       "SymptomEN": "Insomnia",
       "SymptomTC": "不寐",
-      "TreatmentDay": "7",
-      "TreatmentFreq": "2",
-      "BeforeMeal": false,
+      "TreatmentDay": "5",
+      "TreatmentFreq": "3",
+      "BeforeMeal": true,
       "Instruction": [
         "Rinse the medicine under running water",
         "Soak medicine in clean water",
@@ -50,81 +50,111 @@
         }
       ],
       "Prescriptions": [
-        {
-          "Date": "28 Mar 2024",
-          "Time": "10:45",
-          "Remarks": ""
-        },
-        {
-          "Date": "28 Mar 2024",
-          "Time": "20:37",
-          "Remarks": ""
-        },
-        {
-          "Date": "29 Mar 2024",
-          "Time": "11:00",
-          "Remarks": "Forget to bring"
-        },
-        {
-          "Date": "29 Mar 2024",
-          "Time": "20:37",
-          "Remarks": ""
-        },
-        {
-          "Date": "30 Mar 2024",
-          "Time": "11:05",
-          "Remarks": ""
-        },
-        {
-          "Date": "30 Mar 2024",
-          "Time": "20:00",
-          "Remarks": "Forget to bring"
-        },
-        {
-          "Date": "31 Mar 2024",
-          "Time": "11:02",
-          "Remarks": ""
-        },
-        {
-          "Date": "31 Mar 2024",
-          "Time": "20:00",
-          "Remarks": "Expected"
-        },
-        {
-          "Date": "1 Apr 2024",
-          "Time": "11:00",
-          "Remarks": "Expected"
-        },
-        {
-          "Date": "1 Apr 2024",
-          "Time": "20:00",
-          "Remarks": "Expected"
-        },
-        {
-          "Date": "2 Apr 2024",
-          "Time": "11:00",
-          "Remarks": "Expected"
-        },
-        {
-          "Date": "2 Apr 2024",
-          "Time": "20:00",
-          "Remarks": "Expected"
-        },
-        {
-          "Date": "3 Apr 2024",
-          "Time": "11:00",
-          "Remarks": "Expected"
-        },
-        {
-          "Date": "3 Apr 2024",
-          "Time": "20:00",
-          "Remarks": "Expected"
-        }
+        [
+          {
+            "Date": "31 Mar 2024",
+            "Intake": 1,
+            "Time": "07:45",
+            "Remarks": ""
+          },
+          {
+            "Date": "31 Mar 2024",
+            "Intake": 2,
+            "Time": "11:37",
+            "Remarks": ""
+          },
+          {
+            "Date": "31 Mar 2024",
+            "Intake": 3,
+            "Time": "18:45",
+            "Remarks": ""
+          }
+        ],
+        [
+          {
+            "Date": "1 Apr 2024",
+            "Intake": 1,
+            "Time": "08:00",
+            "Remarks": ""
+          },
+          {
+            "Date": "1 Apr 2024",
+            "Intake": 2,
+            "Time": "11:30",
+            "Remarks": "Expected"
+          },
+          {
+            "Date": "1 Apr 2024",
+            "Intake": 3,
+            "Time": "18:45",
+            "Remarks": "Expected"
+          }
+        ],
+        [
+          {
+            "Date": "2 Apr 2024",
+            "Intake": 1,
+            "Time": "08:00",
+            "Remarks": "Expected"
+          },
+          {
+            "Date": "2 Apr 2024",
+            "Intake": 2,
+            "Time": "11:30",
+            "Remarks": "Expected"
+          },
+          {
+            "Date": "2 Apr 2024",
+            "Intake": 3,
+            "Time": "18:45",
+            "Remarks": "Expected"
+          }
+        ],
+        [
+          {
+            "Date": "3 Apr 2024",
+            "Intake": 1,
+            "Time": "08:00",
+            "Remarks": "Expected"
+          },
+          {
+            "Date": "3 Apr 2024",
+            "Intake": 2,
+            "Time": "11:30",
+            "Remarks": "Expected"
+          },
+          {
+            "Date": "3 Apr 2024",
+            "Intake": 3,
+            "Time": "18:45",
+            "Remarks": "Expected"
+          }
+        ],
+        [
+          {
+            "Date": "4 Apr 2024",
+            "Intake": 1,
+            "Time": "08:00",
+            "Remarks": "Expected"
+          },
+          {
+            "Date": "4 Apr 2024",
+            "Intake": 2,
+            "Time": "11:30",
+            "Remarks": "Expected"
+          },
+          {
+            "Date": "4 Apr 2024",
+            "Intake": 3,
+            "Time": "18:45",
+            "Remarks": "Expected"
+          }
+        ]
       ]
     },
     "BodyConditions": [
       {
-        "RecordDate": "28 Mar 2024",
+        "RecordDate": "31 Mar 2024",
         "Q1a": 45,
         "Q1b": 0,
         "Q1c": 0,
@@ -134,7 +164,7 @@
         "Comment": "It takes time to recover. Keep going!"
       },
       {
-        "RecordDate": "29 Mar 2024",
+        "RecordDate": "1 Apr 2024",
         "Q1a": 45.5,
         "Q1b": 120,
         "Q1c": 80,

@@ -10,12 +10,12 @@
       "Surname": "Chan"
     },
     "CurrentTreatment": {
-      "LastVisit": "2024-03-12T12:00:00+08:00",
+      "LastVisit": "2024-03-28T12:00:00+08:00",
       "SymptomEN": "Blood Vacuity",
       "SymptomTC": "血虛",
-      "TreatmentDay": "3",
-      "TreatmentFreq": "3",
-      "BeforeMeal": true,
+      "TreatmentDay": "5",
+      "TreatmentFreq": "2",
+      "BeforeMeal": false,
       "Instruction": [
         "Rinse the medicine under running water",
         "Soak medicine in clean water",
@@ -40,86 +40,81 @@
         }
       ],
       "Prescriptions": [
-        {
-          "Date": "25 Mar 2024",
-          "Time": "07:45",
-          "Remarks": ""
-        },
-        {
-          "Date": "25 Mar 2024",
-          "Time": "11:37",
-          "Remarks": ""
-        },
-        {
-          "Date": "25 Mar 2024",
-          "Time": "18:45",
-          "Remarks": ""
-        },
-        {
-          "Date": "26 Mar 2024",
-          "Time": "08:00",
-          "Remarks": ""
-        },
-        {
-          "Date": "26 Mar 2024",
-          "Time": "11:30",
-          "Remarks": "Forget to bring"
-        },
-        {
-          "Date": "26 Mar 2024",
-          "Time": "18:40",
-          "Remarks": ""
-        },
-        {
-          "Date": "27 Mar 2024",
-          "Time": "07:59",
-          "Remarks": ""
-        },
-        {
-          "Date": "27 Mar 2024",
-          "Time": "11:33",
-          "Remarks": ""
-        },
-        {
-          "Date": "27 Mar 2024",
-          "Time": "18:43",
-          "Remarks": ""
-        },
-        {
-          "Date": "28 Mar 2024",
-          "Time": "08:02",
-          "Remarks": ""
-        },
-        {
-          "Date": "28 Mar 2024",
-          "Time": "11:25",
-          "Remarks": ""
-        },
-        {
-          "Date": "28 Mar 2024",
-          "Time": "18:55",
-          "Remarks": ""
-        },
-        {
-          "Date": "29 Mar 2024",
-          "Time": "08:01",
-          "Remarks": ""
-        },
-        {
-          "Date": "29 Mar 2024",
-          "Time": "11:28",
-          "Remarks": ""
-        },
-        {
-          "Date": "29 Mar 2024",
-          "Time": "18:46",
-          "Remarks": ""
-        }
+        [
+          {
+            "Date": "28 Mar 2024",
+            "Intake": 1,
+            "Time": "10:45",
+            "Remarks": ""
+          },
+          {
+            "Date": "28 Mar 2024",
+            "Intake": 2,
+            "Time": "20:37",
+            "Remarks": ""
+          }
+        ],
+        [
+          {
+            "Date": "29 Mar 2024",
+            "Intake": 1,
+            "Time": "11:00",
+            "Remarks": "Forget to bring"
+          },
+          {
+            "Date": "29 Mar 2024",
+            "Intake": 2,
+            "Time": "20:37",
+            "Remarks": ""
+          }
+        ],
+        [
+          {
+            "Date": "30 Mar 2024",
+            "Intake": 1,
+            "Time": "11:05",
+            "Remarks": ""
+          },
+          {
+            "Date": "30 Mar 2024",
+            "Intake": 2,
+            "Time": "20:00",
+            "Remarks": "Forget to bring"
+          }
+        ],
+        [
+          {
+            "Date": "31 Mar 2024",
+            "Intake": 1,
+            "Time": "11:02",
+            "Remarks": ""
+          },
+          {
+            "Date": "31 Mar 2024",
+            "Intake": 2,
+            "Time": "20:05",
+            "Remarks": ""
+          }
+        ],
+        [
+          {
+            "Date": "1 Apr 2024",
+            "Intake": 1,
+            "Time": "10:58",
+            "Remarks": ""
+          },
+          {
+            "Date": "1 Apr 2024",
+            "Intake": 2,
+            "Time": "20:06",
+            "Remarks": ""
+          }
+        ]
       ]
     },
     "BodyConditions": [
       {
-        "RecordDate": "25 Mar 2024",
+        "RecordDate": "28 Mar 2024",
         "Q1a": 65,
         "Q1b": 120,
         "Q1c": 75,
@@ -129,7 +124,7 @@
         "Comment": "It takes time to recover. Keep going!"
       },
       {
-        "RecordDate": "26 Mar 2024",
+        "RecordDate": "29 Mar 2024",
         "Q1a": 66,
         "Q1b": 0,
         "Q1c": 0,
@@ -139,7 +134,7 @@
         "Comment": "It takes time to recover. Keep going!"
       },
       {
-        "RecordDate": "28 Mar 2024",
+        "RecordDate": "31 Mar 2024",
         "Q1a": 66,
         "Q1b": 110,
         "Q1c": 66,
@@ -149,7 +144,7 @@
         "Comment": "It takes time to recover. Keep going!"
       },
       {
-        "RecordDate": "29 Mar 2024",
+        "RecordDate": "1 Apr 2024",
         "Q1a": 65,
         "Q1b": 115,
         "Q1c": 68,

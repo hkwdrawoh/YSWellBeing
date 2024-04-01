@@ -21,15 +21,26 @@
       "Ingredients": [
       ],
       "Prescriptions": [
-        {
-          "Date": "",
-          "Time": "",
-          "Remarks": ""
-        }
+        [
+          {
+            "Date": "",
+            "Time": "",
+            "Remarks": ""
+          }
+        ]
       ]
     },
     "BodyConditions": [
-
+      {
+        "RecordDate": "",
+        "Q1a": 0,
+        "Q1b": 0,
+        "Q1c": 0,
+        "Q2": 0,
+        "Q3": 0,
+        "Q4": 0,
+        "Comment": ""
+      }
     ]
   }
 }
