@@ -17,6 +17,10 @@
       "TreatmentFreq": "2",
       "BeforeMeal": false,
       "Instruction": [
+        "Rinse the medicine under running water",
+        "Soak medicine in clean water",
+        "Add 400ml water and boil it for 30 minutes",
+        "Strain the decoction when ready"
       ],
       "Ingredients": [
         {
@@ -48,94 +52,73 @@
       "Prescriptions": [
         {
           "Date": "28 Mar 2024",
-          "Intakes": [
-            {
-              "Time": "10:45",
-              "Remarks": ""
-            },
-            {
-              "Time": "20:37",
-              "Remarks": ""
-            }
-          ]
+          "Time": "10:45",
+          "Remarks": ""
+        },
+        {
+          "Date": "28 Mar 2024",
+          "Time": "20:37",
+          "Remarks": ""
         },
         {
           "Date": "29 Mar 2024",
-          "Intakes": [
-            {
-              "Time": "11:00",
-              "Remarks": "Forget to bring"
-            },
-            {
-              "Time": "20:37",
-              "Remarks": ""
-            }
-          ]
+          "Time": "11:00",
+          "Remarks": "Forget to bring"
+        },
+        {
+          "Date": "29 Mar 2024",
+          "Time": "20:37",
+          "Remarks": ""
         },
         {
           "Date": "30 Mar 2024",
-          "Intakes": [
-            {
-              "Time": "11:05",
-              "Remarks": ""
-            },
-            {
-              "Time": "20:00",
-              "Remarks": "Forget to bring"
-            }
-          ]
+          "Time": "11:05",
+          "Remarks": ""
+        },
+        {
+          "Date": "30 Mar 2024",
+          "Time": "20:00",
+          "Remarks": "Forget to bring"
         },
         {
           "Date": "31 Mar 2024",
-          "Intakes": [
-            {
-              "Time": "11:02",
-              "Remarks": ""
-            },
-            {
-              "Time": "20:00",
-              "Remarks": "Expected"
-            }
-          ]
+          "Time": "11:02",
+          "Remarks": ""
+        },
+        {
+          "Date": "31 Mar 2024",
+          "Time": "20:00",
+          "Remarks": "Expected"
         },
         {
           "Date": "1 Apr 2024",
-          "Intakes": [
-            {
-              "Time": "11:00",
-              "Remarks": "Expected"
-            },
-            {
-              "Time": "20:00",
-              "Remarks": "Expected"
-            }
-          ]
+          "Time": "11:00",
+          "Remarks": "Expected"
+        },
+        {
+          "Date": "1 Apr 2024",
+          "Time": "20:00",
+          "Remarks": "Expected"
         },
         {
           "Date": "2 Apr 2024",
-          "Intakes": [
-            {
-              "Time": "11:00",
-              "Remarks": "Expected"
-            },
-            {
-              "Time": "20:00",
-              "Remarks": "Expected"
-            }
-          ]
+          "Time": "11:00",
+          "Remarks": "Expected"
+        },
+        {
+          "Date": "2 Apr 2024",
+          "Time": "20:00",
+          "Remarks": "Expected"
         },
         {
           "Date": "3 Apr 2024",
-          "Intakes": [
-            {
-              "Time": "11:00",
-              "Remarks": "Expected"
-            },
-            {
-              "Time": "20:00",
-              "Remarks": "Expected"
-            }
-          ]
+          "Time": "11:00",
+          "Remarks": "Expected"
+        },
+        {
+          "Date": "3 Apr 2024",
+          "Time": "20:00",
+          "Remarks": "Expected"
         }
       ]
     },

@@ -17,7 +17,10 @@
       "TreatmentFreq": "3",
       "BeforeMeal": true,
       "Instruction": [
-
+        "Rinse the medicine under running water",
+        "Soak medicine in clean water",
+        "Add 400ml water and boil it for 30 minutes",
+        "Strain the decoction when ready"
       ],
       "Ingredients": [
         {
@@ -39,73 +42,122 @@
       "Prescriptions": [
         {
           "Date": "25 Mar 2024",
-          "Intakes": [
-            {
-              "Time": "10:45",
-              "Remarks": ""
-            },
-            {
-              "Time": "20:37",
-              "Remarks": ""
-            }
-          ]
+          "Time": "07:45",
+          "Remarks": ""
+        },
+        {
+          "Date": "25 Mar 2024",
+          "Time": "11:37",
+          "Remarks": ""
+        },
+        {
+          "Date": "25 Mar 2024",
+          "Time": "18:45",
+          "Remarks": ""
         },
         {
           "Date": "26 Mar 2024",
-          "Intakes": [
-            {
-              "Time": "11:00",
-              "Remarks": "Forget to bring"
-            },
-            {
-              "Time": "20:37",
-              "Remarks": ""
-            }
-          ]
+          "Time": "08:00",
+          "Remarks": ""
+        },
+        {
+          "Date": "26 Mar 2024",
+          "Time": "11:30",
+          "Remarks": "Forget to bring"
+        },
+        {
+          "Date": "26 Mar 2024",
+          "Time": "18:40",
+          "Remarks": ""
         },
         {
           "Date": "27 Mar 2024",
-          "Intakes": [
-            {
-              "Time": "11:05",
-              "Remarks": ""
-            },
-            {
-              "Time": "20:00",
-              "Remarks": "Forget to bring"
-            }
-          ]
+          "Time": "07:59",
+          "Remarks": ""
+        },
+        {
+          "Date": "27 Mar 2024",
+          "Time": "11:33",
+          "Remarks": ""
+        },
+        {
+          "Date": "27 Mar 2024",
+          "Time": "18:43",
+          "Remarks": ""
         },
         {
           "Date": "28 Mar 2024",
-          "Intakes": [
-            {
-              "Time": "11:02",
-              "Remarks": ""
-            },
-            {
-              "Time": "20:00",
-              "Remarks": "Expected"
-            }
-          ]
+          "Time": "08:02",
+          "Remarks": ""
+        },
+        {
+          "Date": "28 Mar 2024",
+          "Time": "11:25",
+          "Remarks": ""
+        },
+        {
+          "Date": "28 Mar 2024",
+          "Time": "18:55",
+          "Remarks": ""
         },
         {
           "Date": "29 Mar 2024",
-          "Intakes": [
-            {
-              "Time": "11:00",
-              "Remarks": "Expected"
-            },
-            {
-              "Time": "20:00",
-              "Remarks": "Expected"
-            }
-          ]
+          "Time": "08:01",
+          "Remarks": ""
+        },
+        {
+          "Date": "29 Mar 2024",
+          "Time": "11:28",
+          "Remarks": ""
+        },
+        {
+          "Date": "29 Mar 2024",
+          "Time": "18:46",
+          "Remarks": ""
         }
       ]
     },
     "BodyConditions": [
-
+      {
+        "RecordDate": "25 Mar 2024",
+        "Q1a": 65,
+        "Q1b": 120,
+        "Q1c": 75,
+        "Q2": 3,
+        "Q3": 3,
+        "Q4": 3,
+        "Comment": "It takes time to recover. Keep going!"
+      },
+      {
+        "RecordDate": "26 Mar 2024",
+        "Q1a": 66,
+        "Q1b": ,
+        "Q1c": ,
+        "Q2": 3,
+        "Q3": 3,
+        "Q4": 3,
+        "Comment": "It takes time to recover. Keep going!"
+      },
+      {
+        "RecordDate": "28 Mar 2024",
+        "Q1a": 66,
+        "Q1b": 110,
+        "Q1c": 66,
+        "Q2": 4,
+        "Q3": 5,
+        "Q4": 5,
+        "Comment": "It takes time to recover. Keep going!"
+      },
+      {
+        "RecordDate": "29 Mar 2024",
+        "Q1a": 65,
+        "Q1b": 115,
+        "Q1c": 68,
+        "Q2": 5,
+        "Q3": 5,
+        "Q4": 5,
+        "Comment": "Congratulations on your recovery!"
+      }
     ]
   }
 }
