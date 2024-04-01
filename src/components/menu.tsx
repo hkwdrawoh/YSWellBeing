@@ -6,7 +6,7 @@ import TodayCondition from "@/components/condition";
 import RecoveryProgress from "@/components/progress";
 import AdminPage from "@/components/admin";
 import {formatDate, formatName} from "@/components/functions";
-import {HerbDetails, SymptomDetails} from "@/components/details";
+import {HerbDetails, IntakeDetails, SymptomDetails} from "@/components/details";
 
 import PID0000000 from "@/constants/0000000.json"
 import PID0002357 from "@/constants/0002357.json"
@@ -16,6 +16,7 @@ import PID9999999 from "@/constants/9999999.json"
 
 export default function MainMenu(props: {
     page: string
+    backPage: string
     goToPage: Function
 }) {
     const Data_0000000 = PID0000000.data;
@@ -26,6 +27,13 @@ export default function MainMenu(props: {
     const [patientID, setPID] = useState("");
     const [patientData, setPData] = useState(Data_0000000);
     const [herbIndex, setHerbIndex] = useState(0);
+    const [intakeComplete, setIntakeComplete] = useState(false);
+
+    const today = new Date();
+    const current_treatment = patientData.CurrentTreatment;
+    const prescriptions = current_treatment.Prescriptions;
+    const today_prescription_index = prescriptions.map((a) => a[0].Date).indexOf(formatDate(today));
+    let todays_record = patientData.BodyConditions.filter((a) => a.RecordDate === formatDate(today));
 
     function loginPressed() {
         if (patientID === "0000000") {
@@ -64,27 +72,28 @@ export default function MainMenu(props: {
         }
     }, [])
 
-    // @ts-ignore
-    let todays_record = patientData.BodyConditions.filter((a) => a.RecordDate === formatDate(new Date()));
 
     switch (props.page) {
         case "login":
             return <Login setPatientID={setPatientID} goToPage={props.goToPage} />
 
         case "reminder":
-            return <IntakeReminder patientData={patientData} setPData={setPData} goToPage={props.goToPage} setHerbIndex={setHerbIndex} />
+            return <IntakeReminder patientData={patientData} setPData={setPData} goToPage={props.goToPage} setHerbIndex={setHerbIndex} intakeComplete={intakeComplete} setIntakeComplete={setIntakeComplete} />
 
         case "treatment":
             return <CurrentTreatment goToPage={props.goToPage} patientData={patientData} setHerbIndex={setHerbIndex} />
 
         case "symptom":
-            return <SymptomDetails patientData={patientData}/>
+            return <SymptomDetails patientData={patientData} />
 
         case "herb":
-            return <HerbDetails patientData={patientData} herbIndex={herbIndex}/>
+            return <HerbDetails patientData={patientData} herbIndex={herbIndex} />
+
+        case "intake":
+            return <IntakeDetails patientData={patientData} goToPage={props.goToPage} intake={props.backPage === "reminder"} setIntakeComplete={setIntakeComplete} />
 
         case "condition":
-            return <TodayCondition patientData={patientData} setPData={setPData}/>
+            return <TodayCondition patientData={patientData} setPData={setPData} />
 
         case "progress":
             return <RecoveryProgress patientData={patientData} />
@@ -115,10 +124,10 @@ export default function MainMenu(props: {
                     <span className="text-text2 text-xl text-left underline">Next Intake</span>
                     <span className="text-text2 text-lg">
                         {`Next Reminder:\u00A0
-                        ${patientID === "0000000" ? "N/A" :
-                        !patientData.CurrentTreatment.Prescriptions.filter((a) => a.Date === formatDate(new Date()))[0] ? "No Reminders for Today" :
-                        !patientData.CurrentTreatment.Prescriptions.filter((a) => a.Date === formatDate(new Date()))[0].Intakes.filter((a) => a.Remarks === "Expected")[0] ? "No Reminders for Today" :
-                        patientData.CurrentTreatment.Prescriptions.filter((a) => a.Date === formatDate(new Date()))[0].Intakes.filter((a) => a.Remarks === "Expected")[0].Time}`}
+                        ${patientID === "0000000" ? "N/A" : 
+                        today_prescription_index === -1 ? "No Reminders for Today" :
+                        !prescriptions[today_prescription_index].filter((a) => a.Remarks === "Expected")[0] ? "No Reminders for Today" :
+                        prescriptions[today_prescription_index].filter((a) => a.Remarks === "Expected")[0].Time}`}
                     </span>
                 </button>
 

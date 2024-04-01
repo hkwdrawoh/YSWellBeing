@@ -44,7 +44,7 @@ export default function CurrentTreatment(props: {
                 </span>
                 <button
                     className="text-center py-2 mx-auto bg-primary rounded-lg border-background1 border-2 w-2/3"
-                    // onClick={() => props.setPage("home")}
+                    onClick={() => props.goToPage("intake", "treatment")}
                 >
                     <span className="text-text2">Intake Instruction</span>
                 </button>

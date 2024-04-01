@@ -9,6 +9,13 @@ export function formatDate(isoDate) {
     return date.toLocaleDateString('en-UK', options)
 }
 
+export function formatTime(isoDate) {
+    if (isoDate === "") return "---"
+    const date = new Date(isoDate);
+    const options = {hour: "2-digit", minute: "2-digit"}
+    return date.toLocaleTimeString('en-UK', options)
+}
+
 export function conditionScore(Q2, Q3, Q4) {
     let numerator = Q2 + Q3 + Q4;
     if (numerator === 0) {return 0}

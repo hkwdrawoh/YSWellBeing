@@ -1,4 +1,4 @@
-import {formatDate, formatName} from "@/components/functions";
+import {formatDate, formatName, formatTime} from "@/components/functions";
 import React, {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 
@@ -8,12 +8,18 @@ export default function IntakeReminder(props: {
     setPData: Function
     goToPage: Function
     setHerbIndex: Function
+    intakeComplete: boolean
+    setIntakeComplete: Function
 }) {
+    const today = new Date();
     // @ts-ignore
     const personal_info = props.patientData.PersonalInfo;
     // @ts-ignore
     const current_treatment = props.patientData.CurrentTreatment;
-    const today = new Date();
+    // @ts-ignore
+    const prescriptions = current_treatment.Prescriptions;
+    const today_prescription_index = prescriptions.map((a) => a[0].Date).indexOf(formatDate(today));
+    const today_remaining_prescriptions = prescriptions[today_prescription_index].filter((a) => a.Remarks === "Expected");
 
     const [section, setSection] = useState('next');
     const [intake, setIntake] = useState([-1, -1]);
@@ -24,9 +30,21 @@ export default function IntakeReminder(props: {
             // @ts-ignore
             scrollToRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
         }
-        setIntake([-1, -1]);
+        if (section === 'next') {
+            setIntake([-1, -1]);
+        }
     }, [section])
 
+    useEffect(() => {
+        if (props.intakeComplete) {
+            props.setIntakeComplete(false);
+        }
+    }, [props.intakeComplete])
+
+    function toTodaySchedule() {
+        setIntake([today_prescription_index, 0]);
+        setSection('schedule');
+    }
 
     return <>
         <div className="px-4">
@@ -66,21 +84,21 @@ export default function IntakeReminder(props: {
         {section === "schedule" ? <>
 
             <div className="px-4 grid grid-flow-col auto-cols-max overflow-x-scroll">
-                {current_treatment.Prescriptions.map((day, day_index) => (
-                    <div ref={day.Date === formatDate(today) ? scrollToRef : null} className="min-w-[9em] min-h-[13em] py-2 px-2 m-2 bg-background2 rounded-lg">
-                        <span className="text-3xl">{day.Date.split(" ")[0]}</span>
+                {prescriptions.map((day, day_index) => (
+                    <div ref={day[0].Date === formatDate(today) ? scrollToRef : null} className="min-w-[9em] min-h-[13em] py-2 px-2 m-2 bg-background2 rounded-lg">
+                        <span className="text-3xl">{day[0].Date.split(" ")[0]}</span>
                         <br />
-                        <span className="text-lg">{day.Date.split(" ")[1] + " " + day.Date.split(" ")[2]}</span>
+                        <span className="text-lg">{day[0].Date.split(" ")[1] + " " + day[0].Date.split(" ")[2]}</span>
 
                         <div className="mt-2">
                             <span className="underline">Intakes</span>
-                            {day.Intakes.map((intake, intake_index) => (
+                            {day.map((intake, intake_index) => (
                                 <button
                                     className={`grid grid-cols-5 mt-2 px-2 ${intake.Remarks === "" ? "bg-option4" : intake.Remarks === "Expected" ? "bg-option0" : "bg-option2"} rounded-lg w-full`}
                                     onClick={() => setIntake([day_index, intake_index])}
                                 >
                                     <span>{intake_index + 1}</span>
-                                    <span className="col-span-4">{intake.Remarks === "" ? "Done" : intake.Remarks === "Expected" ? "Upcoming" : "Skipped"}</span>
+                                    <span className="col-span-4">{intake.Remarks === "" ? "Done" : intake.Remarks === "Expected" ? "No Record" : "Skipped"}</span>
                                 </button>
                             ))}
                         </div>
@@ -93,22 +111,22 @@ export default function IntakeReminder(props: {
                     :
                     <>
                         <span className="text-xl font-bold">Intake Information:</span>
-                        <span className="text-xl font-bold">{current_treatment.Prescriptions[intake[0]].Date} - Intake {intake[1] + 1}</span>
+                        <span className="text-xl font-bold">{prescriptions[intake[0]][0].Date} - Intake {prescriptions[intake[0]][intake[1]].Intake}</span>
                         <div className="grid py-4">
-                            {current_treatment.Prescriptions[intake[0]].Intakes[intake[1]].Remarks === "" ?
+                            {prescriptions[intake[0]][intake[1]].Remarks === "" ?
                                 <>
                                     <span className="text-lg">Intake done!</span>
-                                    <span className="text-lg">Time: {current_treatment.Prescriptions[intake[0]].Intakes[intake[1]].Time}</span>
+                                    <span className="text-lg">Time: {prescriptions[intake[0]][intake[1]].Time}</span>
                                 </>
-                                : current_treatment.Prescriptions[intake[0]].Intakes[intake[1]].Remarks === "Expected" ?
+                                : prescriptions[intake[0]][intake[1]].Remarks === "Expected" ?
                                 <>
                                     <span className="text-lg">Intake upcoming...</span>
-                                    <span className="text-lg">Expected Time: {current_treatment.Prescriptions[intake[0]].Intakes[intake[1]].Time}</span>
+                                    <span className="text-lg">Expected Time: {prescriptions[intake[0]][intake[1]].Time}</span>
                                 </>
                                 :
                                 <>
                                     <span className="text-lg">Intake skipped!</span>
-                                    <span className="text-lg">Reason: {current_treatment.Prescriptions[intake[0]].Intakes[intake[1]].Remarks}</span>
+                                    <span className="text-lg">Reason: {prescriptions[intake[0]][intake[1]].Remarks}</span>
                                 </>
                             }
                         </div>
@@ -123,32 +141,52 @@ export default function IntakeReminder(props: {
                 <Image src={`./prescription.jpeg`} fill={true} alt="image" style={{objectFit: "cover"}}/>
             </div>
 
-            <div className="grid p-4 gap-y-2">
-                <span className="text-xl">{formatDate(today)} ({today.toLocaleDateString("en-UK", { weekday: 'long' })})</span>
-                <span className="text-2xl font-bold">Intake for Today</span>
-                <span className="text-2xl font-bold">20:00</span>
-            </div>
+            {today_remaining_prescriptions[0] ?
+                <>
+                    <div className="grid p-4 gap-y-2">
+                        <span className="text-xl">{formatDate(today)} ({today.toLocaleDateString("en-UK", { weekday: 'long' })})</span>
+                        <span className="text-2xl font-bold">Intake {today_remaining_prescriptions[0].Intake} for Today</span>
+                        <span className="text-2xl font-bold">{today_remaining_prescriptions[0].Time}</span>
+                    </div>
 
-            <div className="grid p-4 gap-y-4">
-                <button
-                    className="text-center border-primary rounded-lg bg-option4 border-2 text-xl w-3/4 mx-auto py-2"
-                    onClick={() => setSection("next")}
-                >
-                    <span className="">Intake Now</span>
-                </button>
-                <button
-                    className="text-center border-primary rounded-lg bg-option3 border-2 text-xl w-3/4 mx-auto py-2"
-                    onClick={() => setSection("next")}
-                >
-                    <span className="">Delay Intake</span>
-                </button>
-                <button
-                    className="text-center border-primary rounded-lg bg-option2 border-2 text-xl w-3/4 mx-auto py-2"
-                    onClick={() => setSection("next")}
-                >
-                    <span className="">Skip Intake</span>
-                </button>
-            </div>
+                    <div className="grid p-4 gap-y-4">
+                        <button
+                            className="text-center border-primary rounded-lg bg-option4 border-2 text-xl w-3/4 mx-auto py-2"
+                            onClick={() => props.goToPage("intake", "reminder")}
+                        >
+                            <span className="">Intake Now</span>
+                        </button>
+                        <button
+                            className="text-center border-primary rounded-lg bg-option3 border-2 text-xl w-3/4 mx-auto py-2"
+                            onClick={() => setSection("next")}
+                        >
+                            <span className="">Delay Intake</span>
+                        </button>
+                        <button
+                            className="text-center border-primary rounded-lg bg-option2 border-2 text-xl w-3/4 mx-auto py-2"
+                            onClick={() => setSection("next")}
+                        >
+                            <span className="">Skip Intake</span>
+                        </button>
+                    </div>
+                </>
+                :
+                <>
+                    <div className="grid p-4 gap-y-2">
+                        <span className="text-xl">{formatDate(today)} ({today.toLocaleDateString("en-UK", { weekday: 'long' })})</span>
+                        <span className="text-2xl font-bold">Today's Intakes are Completed!</span>
+                    </div>
+
+                    <div className="grid p-4 gap-y-4">
+                        <button
+                            className="text-center border-primary rounded-lg bg-option4 border-2 text-xl w-3/4 mx-auto py-2"
+                            onClick={() => toTodaySchedule()}
+                        >
+                            <span className="">View Today's Record</span>
+                        </button>
+                    </div>
+                </>
+             }
         </>}
 
     </>

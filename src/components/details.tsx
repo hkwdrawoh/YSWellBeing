@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Symptoms from "@/constants/symptoms.json"
 import Herbs from "@/constants/herbs.json"
+import React from "react";
 
 export function SymptomDetails(props: {
     patientData: Object
@@ -54,5 +55,55 @@ export function HerbDetails(props: {
                 <span className="text-lg">(Source: PolyU)</span>
             </div>
         </div>
+    </>
+}
+
+export function IntakeDetails(props: {
+    patientData: Object
+    goToPage: Function
+    intake: boolean
+    setIntakeComplete: Function
+}) {
+    // @ts-ignore
+    const current_treatment = props.patientData.CurrentTreatment;
+
+    function completeIntake() {
+        props.setIntakeComplete(true);
+        props.goToPage("reminder", "home");
+    }
+
+    return <>
+        <div className="grid gap-y-3 p-4">
+            <span className="text-xl font-bold">Prescription</span>
+            <span className="">{current_treatment.TreatmentDay} Days, {current_treatment.TreatmentFreq} Times / Day
+                    <br />
+                {current_treatment.BeforeMeal ? "Taken Before Meal" : "Taken After Meal"}
+                </span>
+        </div>
+
+        <div className="min-w-full relative py-12 mt-2">
+            <span></span>
+            <Image src={`./prescription.jpeg`} fill={true} alt="image" style={{objectFit: "cover"}}/>
+        </div>
+
+        <div className="grid grid-cols-5 text-left p-4 gap-y-2">
+            <span className="text-lg font-bold col-span-5">Directions:</span>
+            {current_treatment.Instruction.map((step, index) => <>
+                <span className="text-lg">Step {index + 1}:</span>
+                <span className="text-lg col-span-4">{step}</span>
+            </>)}
+
+
+        </div>
+        {!props.intake ? null :
+            <div className="p-4">
+                <button
+                    className="text-center border-primary rounded-lg bg-option4 border-2 text-xl w-3/4 mx-auto py-2"
+                    onClick={() => completeIntake()}
+                >
+                    <span className="">Intake Complete</span>
+                </button>
+            </div>
+        }
     </>
 }

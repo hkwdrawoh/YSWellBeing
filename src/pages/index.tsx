@@ -93,7 +93,7 @@ export default function Home() {
         }
         if (state.status === "success" || info.subscriptionState === "subscribed" || true) {
             return <>
-                <MainMenu page={page} goToPage={goToPage}/>
+                <MainMenu page={page} backPage={backPage} goToPage={goToPage}/>
 
                 {/*
                 <PostSubscribeActions
