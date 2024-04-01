@@ -31,7 +31,7 @@ export function HerbDetails(props: {
 }) {
     // @ts-ignore
     const current_treatment = props.patientData.CurrentTreatment;
-    const HerbsData = Herbs.data[0];
+    const HerbsData = Herbs.data.filter((a) => a.Herb === current_treatment.Ingredients[props.herbIndex].HerbEN)[0];
 
     return <>
         <div className="grid gap-y-4 p-4">
@@ -50,6 +50,8 @@ export function HerbDetails(props: {
                 <br />
                 <span className="text-lg font-bold">Indications:</span>
                 <span className="text-lg">{HerbsData.Indications}</span>
+                <br />
+                <span className="text-lg">(Source: PolyU)</span>
             </div>
         </div>
     </>

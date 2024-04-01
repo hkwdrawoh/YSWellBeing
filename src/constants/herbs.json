@@ -25,39 +25,39 @@
       "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
     },
     {
-      "Herb": "Suberect Spatholobus Stem",
-      "Image": "./herb/SSS.jpg",
-      "Flavors": "bitter, sweet; warm",
-      "Actions": "To tonify blood, activate blood circulation, and free the collateral vessels",
-      "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
+      "Herb": "Spine Date Seed",
+      "Image": "./herb/SDS.jpg",
+      "Flavors": "sweet, sour; neutral",
+      "Actions": "To tonify the liver, cause tranquilization, arrest excessive pespiration, and engender fluid",
+      "Indications": "Insomnia, dream-disturbed sleep; swelling; thirst due to consumption of body fluid"
     },
     {
-      "Herb": "Suberect Spatholobus Stem",
-      "Image": "./herb/SSS.jpg",
-      "Flavors": "bitter, sweet; warm",
-      "Actions": "To tonify blood, activate blood circulation, and free the collateral vessels",
-      "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
+      "Herb": "Indian Bread",
+      "Image": "./herb/IB.jpg",
+      "Flavors": "sweet, bland; neutral",
+      "Actions": "To induce diuresis to drain dampness, invigorate the spleen function, and calm the mind",
+      "Indications": "Edema with oliguria; dizziness and palpitation caused by retained phlegm and morbid fluid; diminished function of the spleen marked by anorexia, loose stools or diarrhea; restlessness and insomnia"
     },
     {
-      "Herb": "Suberect Spatholobus Stem",
-      "Image": "./herb/SSS.jpg",
-      "Flavors": "bitter, sweet; warm",
-      "Actions": "To tonify blood, activate blood circulation, and free the collateral vessels",
-      "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
+      "Herb": "Common Anemarrhena Rhizome",
+      "Image": "./herb/CAR.jpg",
+      "Flavors": "bitter, sweet; cold",
+      "Actions": "To remove heat and quench fire, and promote the production of body fluids and moisten dryness",
+      "Indications": "Febrile diseases with high fever and dire thirst; heat in the lung with dry cough; consumptive fever; wasting-thirst due to internal heat; constipation"
     },
     {
-      "Herb": "Suberect Spatholobus Stem",
-      "Image": "./herb/SSS.jpg",
-      "Flavors": "bitter, sweet; warm",
-      "Actions": "To tonify blood, activate blood circulation, and free the collateral vessels",
-      "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
+      "Herb": "Szechwan Lovage Rhizome",
+      "Image": "./herb/SLR.jpg",
+      "Flavors": "pungent; warm",
+      "Actions": "To promote the flow of qi and activate blood, dispel wind and relieve pain",
+      "Indications": "Menstrual irregularities, amenorrhea, dysmenorrhea; abdominal pain with mass formation; pricking pain in the chest and costal regions; swelling and pain due to traumatic injuries; headache; rheumatic arthralgia"
     },
     {
-      "Herb": "Suberect Spatholobus Stem",
-      "Image": "./herb/SSS.jpg",
-      "Flavors": "bitter, sweet; warm",
-      "Actions": "To tonify blood, activate blood circulation, and free the collateral vessels",
-      "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
+      "Herb": "Liquorice Root",
+      "Image": "./herb/LR.jpg",
+      "Flavors": "sweet; neutral",
+      "Actions": "To reinforce the function of the spleen and replenish qi, remove heat and counteract toxcity, dispel phlegm and relieve cough, alleviate spasmodic pain, and moderate drug actions",
+      "Indications": "Hypofunction of the spleen and the stomach marked by lassitude and weakness; cardiac palpitation and shortness of breath; cough with much phlegm; spasmodic pain in the epigastrium, abdomen and limbs; carbuncles and sores, also used for reducing the toxic or drastic actions of other drugs"
     }
   ]
 }
