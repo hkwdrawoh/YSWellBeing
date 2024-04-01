@@ -5,12 +5,17 @@ import {formatDate, formatName} from "@/components/functions"
 export default function CurrentTreatment(props: {
     goToPage: Function
     patientData: Object
+    setHerbIndex: Function
 }) {
     // @ts-ignore
     const personal_info = props.patientData.PersonalInfo;
     // @ts-ignore
     const current_treatment = props.patientData.CurrentTreatment;
 
+    function goToHerb(herbIndex) {
+        props.setHerbIndex(herbIndex);
+        props.goToPage("herb", "treatment");
+    }
 
     return <>
         <div className="px-4">
@@ -25,7 +30,7 @@ export default function CurrentTreatment(props: {
                 <span className="col-span-5 py-2">{current_treatment.SymptomEN} ({current_treatment.SymptomTC})</span>
                 <button
                     className="col-span-2 text-center bg-primary rounded-lg border-background1 border-2"
-                    // onClick={() => props.setPage("home")}
+                    onClick={() => props.goToPage("symptom", "treatment")}
                 >
                     <span className="text-text2">Details</span>
                 </button>
@@ -49,12 +54,12 @@ export default function CurrentTreatment(props: {
         <div className="bg-background1 border-primary border-y-2 grid grid-cols-10 gap-y-2 mt-4 px-4 pt-4 pb-6 items-center">
             <span className="font-bold text-xl text-left col-span-10 pb-4">Ingredients (Per Pack)</span>
 
-            {current_treatment.Ingredients.map((herb) => <>
+            {current_treatment.Ingredients.map((herb, index) => <>
                 <li className="text-left col-span-6">{herb.HerbEN} ({herb.HerbTC})</li>
                 <span className="col-span-2">{herb.Weight} g</span>
                 <button
                     className="col-span-2 text-center py-1 bg-primary rounded-lg border-background1 border-2"
-                    // onClick={() => props.setPage("home")}
+                    onClick={() => goToHerb(index)}
                 >
                     <span className="text-text2">Info</span>
                 </button>

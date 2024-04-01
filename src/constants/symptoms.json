@@ -1,0 +1,17 @@
+{
+  "type": "SymptomData",
+  "version": "1.0",
+  "generated_timestamp": "2024-04-01T12:00:00+08:00",
+  "data": [
+    {
+      "Symptom": "Blood Vacuity",
+      "Image": "./symptom/blood_vacuity.jpg",
+      "Description": "A condition of blood deficiency.\nSymptoms include fatigue and pale complexion.\nTreatment involves nourishing the blood through diet, herbs, and lifestyle adjustments."
+    },
+    {
+      "Symptom": "Insomnia",
+      "Image": "./symptom/insomnia.jpg",
+      "Description": "A sign of an internal disharmony.\nSymptoms include daytime tiredness, irritability, depression or anxiety, reduced mental alertness and concentration, increased errors or accidents as well as ongoing worries about sleep.\nTreatment involves nourishing the heart through diet, herbs, and lifestyle adjustments."
+    }
+  ]
+}

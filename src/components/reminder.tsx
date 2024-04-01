@@ -6,6 +6,8 @@ import Image from "next/image";
 export default function IntakeReminder(props: {
     patientData: Object
     setPData: Function
+    goToPage: Function
+    setHerbIndex: Function
 }) {
     // @ts-ignore
     const personal_info = props.patientData.PersonalInfo;
@@ -39,7 +41,7 @@ export default function IntakeReminder(props: {
                 <span className="col-span-5 py-2">{current_treatment.SymptomEN} ({current_treatment.SymptomTC})</span>
                 <button
                     className="col-span-2 text-center bg-primary rounded-lg border-primary border-2"
-                    // onClick={() => props.setPage("home")}
+                    onClick={() => props.goToPage("symptom", "reminder")}
                 >
                     <span className="text-text2">Details</span>
                 </button>

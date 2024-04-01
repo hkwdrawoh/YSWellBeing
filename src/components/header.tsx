@@ -17,6 +17,14 @@ export default function Header(props: {
             header_text = "Current Treatment";
             break;
 
+        case "symptom":
+            header_text = "Symptom Details";
+            break;
+
+        case "herb":
+            header_text = "Herb Details";
+            break;
+
         case "condition":
             header_text = "Today's Body Condition";
             break;

@@ -1,0 +1,63 @@
+{
+  "type": "HerbData",
+  "version": "1.0",
+  "generated_timestamp": "2024-04-01T12:00:00+08:00",
+  "data": [
+    {
+      "Herb": "Heterophylly Falsestarwort Root",
+      "Image": "./herb/HFR.jpg",
+      "Flavors": "sweet, slightly bitter; neutral",
+      "Actions": "To tonify qi and invigorate the spleen function, and engender fluid and moisten the lung",
+      "Indications": "Hypofunction of the spleen with lassitude and anorexia; debility and deficiency of qi and yin marked by spontaneous sweating and thirst during convalescence, dry cough due to dryness of the lung"
+    },
+    {
+      "Herb": "Barbary Wolfberry Fruit",
+      "Image": "./herb/BWF.jpg",
+      "Flavors": "sweet; neutral",
+      "Actions": "To enrich the liver and the kidney, replenish vital essence and improve vision",
+      "Indications": "General debility with deficiency of vital essence with manifestations of aching of the loins and knees, dizziness and tinnitus; diabetes caused by internal heat; anemia; impaired vision"
+    },
+    {
+      "Herb": "Suberect Spatholobus Stem",
+      "Image": "./herb/SSS.jpg",
+      "Flavors": "bitter, sweet; warm",
+      "Actions": "To tonify blood, activate blood circulation, and free the collateral vessels",
+      "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
+    },
+    {
+      "Herb": "Suberect Spatholobus Stem",
+      "Image": "./herb/SSS.jpg",
+      "Flavors": "bitter, sweet; warm",
+      "Actions": "To tonify blood, activate blood circulation, and free the collateral vessels",
+      "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
+    },
+    {
+      "Herb": "Suberect Spatholobus Stem",
+      "Image": "./herb/SSS.jpg",
+      "Flavors": "bitter, sweet; warm",
+      "Actions": "To tonify blood, activate blood circulation, and free the collateral vessels",
+      "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
+    },
+    {
+      "Herb": "Suberect Spatholobus Stem",
+      "Image": "./herb/SSS.jpg",
+      "Flavors": "bitter, sweet; warm",
+      "Actions": "To tonify blood, activate blood circulation, and free the collateral vessels",
+      "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
+    },
+    {
+      "Herb": "Suberect Spatholobus Stem",
+      "Image": "./herb/SSS.jpg",
+      "Flavors": "bitter, sweet; warm",
+      "Actions": "To tonify blood, activate blood circulation, and free the collateral vessels",
+      "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
+    },
+    {
+      "Herb": "Suberect Spatholobus Stem",
+      "Image": "./herb/SSS.jpg",
+      "Flavors": "bitter, sweet; warm",
+      "Actions": "To tonify blood, activate blood circulation, and free the collateral vessels",
+      "Indications": "Menstrual disorders; anemia; numbness and paralysis; rheumatic arthralgia"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import TodayCondition from "@/components/condition";
 import RecoveryProgress from "@/components/progress";
 import AdminPage from "@/components/admin";
 import {formatDate, formatName} from "@/components/functions";
+import {HerbDetails, SymptomDetails} from "@/components/details";
 
 import PID0000000 from "@/constants/0000000.json"
 import PID0002357 from "@/constants/0002357.json"
@@ -24,6 +25,7 @@ export default function MainMenu(props: {
 
     const [patientID, setPID] = useState("");
     const [patientData, setPData] = useState(Data_0000000);
+    const [herbIndex, setHerbIndex] = useState(0);
 
     function loginPressed() {
         if (patientID === "0000000") {
@@ -70,10 +72,16 @@ export default function MainMenu(props: {
             return <Login setPatientID={setPatientID} goToPage={props.goToPage} />
 
         case "reminder":
-            return <IntakeReminder patientData={patientData} setPData={setPData} />
+            return <IntakeReminder patientData={patientData} setPData={setPData} goToPage={props.goToPage} setHerbIndex={setHerbIndex} />
 
         case "treatment":
-            return <CurrentTreatment goToPage={props.goToPage} patientData={patientData} />
+            return <CurrentTreatment goToPage={props.goToPage} patientData={patientData} setHerbIndex={setHerbIndex} />
+
+        case "symptom":
+            return <SymptomDetails patientData={patientData}/>
+
+        case "herb":
+            return <HerbDetails patientData={patientData} herbIndex={herbIndex}/>
 
         case "condition":
             return <TodayCondition patientData={patientData} setPData={setPData}/>
