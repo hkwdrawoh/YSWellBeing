@@ -15,7 +15,7 @@ import PID9999999 from "@/constants/9999999.json"
 
 export default function MainMenu(props: {
     page: string
-    setPage: Function
+    goToPage: Function
 }) {
     const Data_0000000 = PID0000000.data;
     const Data_0002357 = PID0002357.data;
@@ -27,10 +27,10 @@ export default function MainMenu(props: {
 
     function loginPressed() {
         if (patientID === "0000000") {
-            props.setPage("login")
+            props.goToPage("login", "home")
         } else {
             setPatientID("0000000")
-            props.setPage("home")
+            props.goToPage("home", "home")
         }
     }
 
@@ -58,7 +58,7 @@ export default function MainMenu(props: {
             setPatientID(userId)
         }
         if (userId === "9999999") {
-            props.setPage("admin")
+            props.goToPage("admin", "home")
         }
     }, [])
 
@@ -67,13 +67,13 @@ export default function MainMenu(props: {
 
     switch (props.page) {
         case "login":
-            return <Login setPatientID={setPatientID} setPage={props.setPage} />
+            return <Login setPatientID={setPatientID} goToPage={props.goToPage} />
 
         case "reminder":
             return <IntakeReminder patientData={patientData} setPData={setPData} />
 
         case "treatment":
-            return <CurrentTreatment setPage={props.setPage} patientData={patientData} />
+            return <CurrentTreatment goToPage={props.goToPage} patientData={patientData} />
 
         case "condition":
             return <TodayCondition patientData={patientData} setPData={setPData}/>
@@ -102,7 +102,7 @@ export default function MainMenu(props: {
 
                 <button
                     className="text-center my-5 grid gap-x-4 gap-y-4 bg-section1 p-4 rounded-lg border-primary border-opacity-50 border-2 w-full"
-                    onClick={() => props.setPage(patientID === "0000000" ? "login" : "reminder")}
+                    onClick={() => props.goToPage(patientID === "0000000" ? "login" : "reminder", "home")}
                 >
                     <span className="text-text2 text-xl text-left underline">Next Intake</span>
                     <span className="text-text2 text-lg">
@@ -116,7 +116,7 @@ export default function MainMenu(props: {
 
                 <button
                     className="text-center my-5 grid gap-x-4 gap-y-4 bg-section2 p-4 rounded-lg border-primary border-opacity-50 border-2 w-full"
-                    onClick={() => props.setPage(patientID === "0000000" ? "login" : "treatment")}
+                    onClick={() => props.goToPage(patientID === "0000000" ? "login" : "treatment", "home")}
                 >
                     <span className="text-text2 text-xl text-left underline">Current Treatment</span>
                     <span className="text-text2 text-lg">{patientID === "0000000" ? "Login to view your treatment." : patientData.CurrentTreatment.SymptomEN + " (" + patientData.CurrentTreatment.SymptomTC + ")"}</span>
@@ -124,7 +124,7 @@ export default function MainMenu(props: {
 
                 <button
                     className="text-center my-5 grid gap-x-4 gap-y-4 bg-section3 p-4 rounded-lg border-primary border-opacity-50 border-2 w-full"
-                    onClick={() => props.setPage(patientID === "0000000" ? "login" : "condition")}
+                    onClick={() => props.goToPage(patientID === "0000000" ? "login" : "condition", "home")}
                 >
                     <span className="text-text2 text-xl text-left underline">Today’s Body Condition</span>
                     <span className="text-text2 text-lg">{patientID === "0000000" ? "Login to record your condition." : (todays_record[0] ? "Recorded, thank you!" : "Condition not recorded!")}</span>
@@ -132,7 +132,7 @@ export default function MainMenu(props: {
 
                 <button
                     className="text-center my-5 grid gap-x-4 gap-y-4 bg-section4 p-4 rounded-lg border-primary border-opacity-50 border-2 w-full"
-                    onClick={() => props.setPage(patientID === "0000000" ? "login" : "progress")}
+                    onClick={() => props.goToPage(patientID === "0000000" ? "login" : "progress", "home")}
                 >
                     <span className="text-text2 text-xl text-left underline">My Recovery Progress</span>
                     <span className="text-text2 text-lg">&emsp;</span>

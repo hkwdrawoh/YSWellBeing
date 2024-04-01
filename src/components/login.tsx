@@ -6,7 +6,7 @@ import sha256 from 'crypto-js/sha256'
 
 export default function Login(props: {
     setPatientID: Function
-    setPage: Function
+    goToPage: Function
 }) {
     const [err_msg, setErrMsg] = useState("")
     const [patientID, setPatientID] = useState("")
@@ -41,9 +41,9 @@ export default function Login(props: {
         setErrMsg("")
         props.setPatientID(patientID)
         if (patientID === "9999999") {
-            props.setPage("admin");
+            props.goToPage("admin", "home");
         } else {
-            props.setPage("home");
+            props.goToPage("home", "home");
         }
     }
 

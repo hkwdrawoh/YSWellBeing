@@ -1,4 +1,4 @@
-import {formatDate, formatName} from "@/components/functions";
+import {formatDate} from "@/components/functions";
 import React from "react";
 
 

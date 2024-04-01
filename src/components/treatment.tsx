@@ -3,7 +3,7 @@ import {formatDate, formatName} from "@/components/functions"
 
 
 export default function CurrentTreatment(props: {
-    setPage: Function
+    goToPage: Function
     patientData: Object
 }) {
     // @ts-ignore

@@ -1,12 +1,10 @@
 import Head from "next/head";
 import React, {useEffect, useState} from "react";
 
-import ContentWrapper from "@/components/content-wrapper";
-import Disclaimer, {magicBellHandle} from "@/components/disclaimer";
 import ErrorDiagnostics from "@/components/error-diagnostics";
-import Footer from "@/components/footer";
+// import Footer from "@/components/footer";
 import IosInstructionalStatic from "@/components/ios-instructional-static";
-import PostSubscribeActions from "@/components/post-subscribe-actions";
+// import PostSubscribeActions from "@/components/post-subscribe-actions";
 import Subscriber from "@/components/subscriber";
 import useDeviceInfo, {DeviceInfo} from "@/hooks/useDeviceInfo";
 import minVersionCheck from "@/utils/minVersionCheck";
@@ -25,6 +23,7 @@ export default function Home() {
     const [footerOpen, setFooterOpen] = useState(false);
     const [canResendNotification, setCanResendNotification] = useState(false);
     const [state, setState] = useState<State>({status: "idle"});
+    const [backPage, setBackPage] = useState('home');
     const [page, setPage] = useState('home');
     const info = useDeviceInfo();
 
@@ -46,10 +45,14 @@ export default function Home() {
         const queryParameters = new URLSearchParams(window.location.search)
         const searchParams = queryParameters.get("page")
         if (searchParams) {
-            // @ts-ignore
-            setPage(searchParams);
+            goToPage(searchParams, 'home');
         }
     }, []);
+
+    function goToPage(destination, source) {
+        setBackPage(source);
+        setPage(destination);
+    }
 
     function anticipateSubscriptionFailure(info: DeviceInfo) {
         // if (!info.standalone && info.osName === "Mac OS") return <IosInstructionalStatic />;
@@ -90,8 +93,7 @@ export default function Home() {
         }
         if (state.status === "success" || info.subscriptionState === "subscribed" || true) {
             return <>
-                <MainMenu page={page} setPage={setPage}/>
-
+                <MainMenu page={page} goToPage={goToPage}/>
 
                 {/*
                 <PostSubscribeActions
@@ -124,11 +126,7 @@ export default function Home() {
             return;
         }
         if (state.status === "error") {
-            return (
-                <>
-                    <ErrorDiagnostics error={state.error}></ErrorDiagnostics>
-                </>
-            );
+            return <ErrorDiagnostics error={state.error}></ErrorDiagnostics>;
         }
         if (state.status === "success" && enableSuccessMessage) {
             return (
@@ -141,17 +139,6 @@ export default function Home() {
                             If not, first try checking your browser notification settings at
                             the operating system level (it is possible that notifications are
                             muted for your current browser).
-                        </p>
-                        <p className="my-2">
-                            If this does not explain it, we would love it if you could tag us{" "}
-                            <a
-                                className="text-text"
-                                href={`https://twitter.com/intent/user?screen_name=${magicBellHandle}`}
-                                target="_blank"
-                            >
-                                @magicbell_io
-                            </a>
-                            , with reference to your device settings displayed below.
                         </p>
                     </section>
                 </>
@@ -178,7 +165,7 @@ export default function Home() {
     return (
         <>
             <header className="no-select h-[3.5em] fixed top-0 w-full">
-                <Header page={page} setPage={setPage} />
+                <Header page={page} goToPage={goToPage} backPage={backPage} />
             </header>
 
             <Head>
@@ -208,7 +195,9 @@ export default function Home() {
                 ) : (
                     <>
                         <div className="h-full max-w-screen-lg mx-auto pb-20">
-                            <ContentWrapper message={""}>{actions(state)}</ContentWrapper>
+                            <section className="text-center text-text">
+                                {actions(state)}
+                            </section>
                             {result(state)}
                         </div>
                         {/*<Disclaimer/>*/}
