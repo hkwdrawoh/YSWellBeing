@@ -7,7 +7,7 @@ function Tile(props: {
 }) {
   return (
     <figure
-      className="relative border-t-2 border-gray-300 mb-8"
+      className="relative border-t-2 border-gray-300 mb-8 -z-10"
       style={{ paddingBottom: "100%" }}
     >
       <figcaption
