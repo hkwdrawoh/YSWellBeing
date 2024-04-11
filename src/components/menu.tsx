@@ -14,12 +14,15 @@ import PID0004689 from "@/constants/0004689.json"
 import PID9999999 from "@/constants/9999999.json"
 import PatientInfo from "@/components/patient-info";
 import ReplyPatient from "@/components/reply-patient";
+import {State} from "@/pages";
 
 
 export default function MainMenu(props: {
     page: string
     backPage: string
     goToPage: Function
+    state: State
+    setState: React.Dispatch<React.SetStateAction<State>>
 }) {
     const Data_0000000 = PID0000000.data;
     const Data_0002357 = PID0002357.data;
@@ -80,7 +83,7 @@ export default function MainMenu(props: {
             return <Login setPatientID={setPatientID} goToPage={props.goToPage} />
 
         case "reminder":
-            return <IntakeReminder patientData={patientData} setPData={setPData} goToPage={props.goToPage} setHerbIndex={setHerbIndex} intakeComplete={intakeComplete} setIntakeComplete={setIntakeComplete} />
+            return <IntakeReminder patientData={patientData} setPData={setPData} goToPage={props.goToPage} setHerbIndex={setHerbIndex} intakeComplete={intakeComplete} setIntakeComplete={setIntakeComplete} state={props.state} setState={props.setState}/>
 
         case "treatment":
             return <CurrentTreatment goToPage={props.goToPage} patientData={patientData} setHerbIndex={setHerbIndex} />

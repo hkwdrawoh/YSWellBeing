@@ -56,19 +56,6 @@ export class SubscriptionManager {
     }
   ) {
     await subscribe(options)
-    await fetch("https://api.magicbell.com/push_subscriptions", {
-      method: "POST",
-      body: JSON.stringify({
-        "push_subscription": {
-          "device_token": options.token,
-          "platform": "safari"
-        },
-      }),
-      headers: {
-        "X-MAGICBELL-API-KEY": process.env.NEXT_PUBLIC_MAGICBELL_API_KEY,
-        "X-MAGICBELL-USER-EXTERNAL-ID": userId,
-      },
-    })
     await this.saveActiveSubscriptionIdToLocalStorage(userId)
     await this.sendWelcomeNotification(userId)
   }

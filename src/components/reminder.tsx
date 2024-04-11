@@ -2,6 +2,8 @@ import {formatDate, formatName, formatTime} from "@/components/functions";
 import React, {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 import * as Collapsible from "@radix-ui/react-collapsible";
+import Subscriber from "@/components/subscriber";
+import {State} from "@/pages";
 
 
 export default function IntakeReminder(props: {
@@ -11,6 +13,8 @@ export default function IntakeReminder(props: {
     setHerbIndex: Function
     intakeComplete: boolean
     setIntakeComplete: Function
+    state: State
+    setState: React.Dispatch<React.SetStateAction<State>>
 }) {
     const today = new Date();
     // @ts-ignore
@@ -147,11 +151,11 @@ export default function IntakeReminder(props: {
                     </div>
                 ))}
             </div>
-            <div className="grid px-4 py-4">
+            <div className="grid px-4 py-4 gap-y-4">
                 {intake[0] === -1 ?
                     <span className="text-xl font-bold">Click on the intake to show details.</span>
                     :
-                    <>
+                    <div className="grid">
                         <span className="text-xl font-bold">Intake Information:</span>
                         <span className="text-xl font-bold">{prescriptions[intake[0]][0].Date} - Intake {prescriptions[intake[0]][intake[1]].Intake}</span>
                         <div className="grid py-4">
@@ -172,7 +176,7 @@ export default function IntakeReminder(props: {
                                 </>
                             }
                         </div>
-                    </>
+                    </div>
                 }
             </div>
 
@@ -245,6 +249,11 @@ export default function IntakeReminder(props: {
                     </div>
                 </>
              }
+             
+            <div className="p-4">
+                <Subscriber state={props.state} setState={props.setState} />
+            </div>
+
         </>}
 
         <DelayFooter open={delayFooterOpen} setOpen={setDelayFooterOpen} delayIntake={delayIntake} />

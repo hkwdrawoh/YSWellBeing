@@ -32,21 +32,28 @@ class MagicBell {
     }
     const response = await fetch("https://api.magicbell.com/broadcasts", {
       method: "POST",
-      body: JSON.stringify({
-        "broadcast": {
-          "title": "It's time to take your medicine!",
-          "content": "Remember to take the medicine on time.",
-          "topic": "welcome",
-          "recipients": [{ "external_id": userId}]
-        },
-      }),
       headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
         "X-MAGICBELL-API-KEY": process.env.NEXT_PUBLIC_MAGICBELL_API_KEY,
         "X-MAGICBELL-API-SECRET": "0ErH7YZfkIeI9sRNN7bkSNjzF2MS4ZtuIzXIsmc3",
       },
+      body: JSON.stringify({
+        "broadcast": {
+          "title": "Time to take your medicine!",
+          "content": "Stay on track and nurture your well-being!",
+          "action_url": "https://yswellbeing.howardwkh.pp.ua?page=reminder",
+          "recipients": [
+            {
+              "external_id": userId,
+            }
+          ],
+        }
+      })
     })
-    if (!response) {
-      // throw new Error(`Failed to send ${type} notification`)
+    const text = await response.text();
+    if (!response.ok) {
+      throw new Error(`Failed to send ${type} notification. ${text}`)
     }
   }
 
@@ -74,68 +81,6 @@ class MagicBell {
             .map((subscription: TopicSubscription) => subscription.topic) || []
         )
       })
-  }
-
-  /**
-   * Subscribe a user to a topic
-   * @param topic The topic to subscribe to
-   * @param notify Whether to send a notification to the user on subscription
-   */
-  public async subscribeToTopic(topic: string, notify: boolean = false) {
-    const userId = this.getUserId()
-    if (!userId) {
-      return
-    }
-    await fetch(`https://api.magicbell.com/subscriptions`, {
-      method: "POST",
-      headers: {
-        "X-MAGICBELL-API-KEY": process.env.NEXT_PUBLIC_MAGICBELL_API_KEY,
-        "X-MAGICBELL-USER-EXTERNAL-ID": userId,
-      },
-      body: JSON.stringify({
-        subscription: {
-          categories: [
-            {
-              slug: "default",
-              status: "subscribed",
-              reason: "user",
-            },
-          ],
-          topic,
-        },
-      }),
-    }).then((response) => response.json())
-  }
-
-  /**
-   * Unsubscribe the user from a topic
-   */
-  public unsubscribeFromTopic(topic: string) {
-    const userId = this.getUserId()
-    if (!userId) {
-      return
-    }
-    return fetch(
-      `https://api.magicbell.com/subscriptions/${topic}/unsubscribe`,
-      {
-        method: "POST",
-        headers: {
-          "X-MAGICBELL-API-KEY": process.env.NEXT_PUBLIC_MAGICBELL_API_KEY,
-          "X-MAGICBELL-USER-EXTERNAL-ID": userId,
-        },
-        body: JSON.stringify({
-          subscription: {
-            categories: [
-              {
-                slug: "default",
-                status: "unsubscribed",
-                reason: "user",
-              },
-            ],
-          },
-        }),
-      }
-    ).then((response) => response.json())
   }
 
 }

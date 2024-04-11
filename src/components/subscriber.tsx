@@ -55,28 +55,32 @@ export default function Subscriber({
 
   if (isLoading) {
     return <>
-      <Image src="/notification.png" className={"inline-block my-6"} alt="bell" width={60} height={60} />
-      <Button text="Loading" classname="bg-gray-500" disabled={true} />
-      <p className="text-xs mt-6 mb-16">
-        Please allow the app to send notifications to remind taking prescription on time.
-      </p>
+      <button
+          className="text-center border-primary rounded-lg bg-option0 border-2 text-xl w-3/4 mx-auto py-1"
+      >
+        <span className="">Loading...</span>
+      </button>
     </>
   }
 
   if (state.status === "error") {
     return <>
-      <Image src="/notification.png" className={"inline-block my-6"} alt="bell" width={60} height={60} />
-      <Button text="Error" classname="bg-red-400" disabled={true} />
+      <button
+          className="text-center border-primary rounded-lg bg-option0 border-2 text-xl w-3/4 mx-auto py-1"
+      >
+        <span className="">Error! No Permission!</span>
+      </button>
     </>
   }
 
   return (
     <>
-      <Image src="/notification.png" className={"inline-block my-6"} alt="bell" width={60} height={60} />
-      <Button onClick={handleSubscribe} text="Allow Notification" classname="bg-primary" disabled={false} />
-      <p className="text-xs mt-6 mb-16">
-        Please allow the app to send notifications to remind taking prescription on time.
-      </p>
+      <button
+          className="text-center border-primary rounded-lg bg-option0 border-2 text-xl w-3/4 mx-auto py-1"
+          onClick={handleSubscribe}
+      >
+        <span className="">Send Test Notification!</span>
+      </button>
     </>
   )
 }
