@@ -6,9 +6,9 @@ export default function TodayCondition(props: {
     patientData: Object
     setPData: Function
 }) {
-    const [Q1a, setQ1a] = useState(0);
-    const [Q1b, setQ1b] = useState(0);
-    const [Q1c, setQ1c] = useState(0);
+    const [Q1a, setQ1a] = useState("");
+    const [Q1b, setQ1b] = useState("");
+    const [Q1c, setQ1c] = useState("");
     const [Q2, setQ2] = useState(0);
     const [Q3, setQ3] = useState(0);
     const [Q4, setQ4] = useState(0);
@@ -16,9 +16,9 @@ export default function TodayCondition(props: {
     const [currQ, setCurrQ] = useState(1);
     const [err_msg, setErrMsg] = useState("");
 
-    const handleQ1a = (e) => {setQ1a(Number(e.target.value))};
-    const handleQ1b = (e) => {setQ1b(Number(e.target.value))};
-    const handleQ1c = (e) => {setQ1c(Number(e.target.value))};
+    const handleQ1a = (e) => {setQ1a(e.target.value)};
+    const handleQ1b = (e) => {setQ1b(e.target.value)};
+    const handleQ1c = (e) => {setQ1c(e.target.value)};
 
     const Q2_options = ["Very Good 😆", "Good 🙂", "Average 😐", "Bad 🙁", "Very Bad 😵‍💫"];
     const Q3_options = ["Much Better 😆", "A Bit Better 🙂", "Similar 😐", "A Bit Worse 🙁", "Much Worse 😵‍💫"];
@@ -51,12 +51,27 @@ export default function TodayCondition(props: {
 
     function nextQuestion() {
         // @ts-ignore
-        if (currQ === 1 && Q1a !== 0 && (Q1a < 0 || Q1a >= 600)) {
+        if (currQ === 1 && isNaN(Q1a) && Q1a !== "") {
             setErrMsg("Weight is invalid.");
             return
         }
         // @ts-ignore
-        if (currQ === 1 && ((Q1b !== 0 && Q1c === 0) || (Q1b === 0 && Q1c !== 0) || (Q1b - Q1c < 0) || Q1b < 0 || Q1c < 0)) {
+        if (currQ === 1 && Q1a !== "" && (Q1a <= 0 || Q1a >= 400)) {
+            setErrMsg("Weight is invalid.");
+            return
+        }
+        // @ts-ignore
+        if (currQ === 1 && isNaN(Q1b) && Q1b !== "") {
+            setErrMsg("Blood pressure is invalid.");
+            return
+        }
+        // @ts-ignore
+        if (currQ === 1 && isNaN(Q1c) && Q1c !== "") {
+            setErrMsg("Blood pressure is invalid.");
+            return
+        }
+        // @ts-ignore
+        if (currQ === 1 && Q1b !== "" && Q1c !== "" && ((Q1b - Q1c < 0) || Q1b < 50 || Q1c < 30)) {
             setErrMsg("Blood pressure is invalid.");
             return
         }
@@ -66,9 +81,9 @@ export default function TodayCondition(props: {
 
     function resetQuestion() {
         if (currQ === 1) {
-            setQ1a(0);
-            setQ1b(0);
-            setQ1c(0);
+            setQ1a("");
+            setQ1b("");
+            setQ1c("");
         }
         if (currQ === 2) {setQ2(0)}
         if (currQ === 3) {setQ3(0)}
@@ -104,7 +119,7 @@ export default function TodayCondition(props: {
                 </div>
                 <div className="grid grid-cols-6 text-left p-4 my-2 gap-y-4 bg-background2 items-center">
                     <span className="font-bold text-lg col-span-3">WEIGHT</span>
-                    <input value={Q1a} onChange={handleQ1a} type="number" step="0.1" className="border-black border-2 rounded-lg p-2 col-span-2 text-right" />
+                    <input value={Q1a} onChange={handleQ1a} className="border-black border-2 rounded-lg p-2 col-span-2 text-right" />
                     <span className="text-lg text-center">kg</span>
                 </div>
                 <div className="grid grid-cols-6 text-left p-4 my-2 gap-y-4 bg-background2 items-center">
@@ -222,14 +237,14 @@ export default function TodayCondition(props: {
                                 <div className="col-span-2 grid grid-cols-7 items-center w-2/3 mx-auto">
                                     <span className="text-option0 text-xs">|</span><span className="text-sm">|</span><span className="text-base">|</span><span className="text-lg text-section2">|</span><span className="text-base">|</span><span className="text-sm">|</span><span className="text-xs text-option0">|</span>
                                 </div>
-                                <span className="col-span-2">{Q1a === 0 ? "--" : Q1a} kg</span>
+                                <span className="col-span-2">{Q1a === "" ? "--" : Q1a} kg</span>
                             </div>
                             <div className="grid grid-cols-3 pl-2 py-2 items-center bg-background2 rounded-xl">
                                 <span className="row-span-2">Blood Pressure</span>
                                 <div className="col-span-2 grid grid-cols-7 items-center w-2/3 mx-auto">
                                     <span className="text-option0 text-xs">|</span><span className="text-sm">|</span><span className="text-base">|</span><span className="text-lg text-section2">|</span><span className="text-base">|</span><span className="text-sm">|</span><span className="text-xs text-option0">|</span>
                                 </div>
-                                <span className="col-span-2">{Q1b === 0 ? "--" : Q1b} / {Q1c === 0 ? "--" : Q1c}</span>
+                                <span className="col-span-2">{Q1b === "" ? "--" : Q1b} / {Q1c === "" ? "--" : Q1c}</span>
                             </div>
                         </div>
 

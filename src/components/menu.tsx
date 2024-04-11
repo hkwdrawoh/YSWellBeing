@@ -12,6 +12,8 @@ import PID0000000 from "@/constants/0000000.json"
 import PID0002357 from "@/constants/0002357.json"
 import PID0004689 from "@/constants/0004689.json"
 import PID9999999 from "@/constants/9999999.json"
+import PatientInfo from "@/components/patient-info";
+import ReplyPatient from "@/components/reply-patient";
 
 
 export default function MainMenu(props: {
@@ -99,7 +101,13 @@ export default function MainMenu(props: {
             return <RecoveryProgress patientData={patientData} />
 
         case "admin":
-            return <AdminPage loginPressed={loginPressed} />
+            return <AdminPage loginPressed={loginPressed} goToPage={props.goToPage} />
+
+        case "reply-patient":
+            return <ReplyPatient />
+
+        case "patient-info":
+            return <PatientInfo />
 
         default:
             return <div className="px-4 pt-4">

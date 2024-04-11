@@ -44,8 +44,8 @@ export default function Home() {
 
         const queryParameters = new URLSearchParams(window.location.search)
         const searchParams = queryParameters.get("page")
-        if (searchParams) {
-            goToPage(searchParams, 'home');
+        if (searchParams === "reminder") {
+            goToPage("reminder", 'home');
         }
     }, []);
 

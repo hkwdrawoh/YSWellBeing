@@ -41,6 +41,14 @@ export default function Header(props: {
             header_text = "YS WELL-BEING ADMIN";
             break;
 
+        case "reply-patient":
+            header_text = "Reply to Patients";
+            break;
+
+        case "patient-info":
+            header_text = "Patient's information";
+            break;
+
         default:
             header_text = "YS WELL-BEING";
     }

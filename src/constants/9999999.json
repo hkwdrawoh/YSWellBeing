@@ -20,7 +20,14 @@
       ],
       "Ingredients": [
       ],
-      "Prescription": [
+      "Prescriptions": [
+        [
+          {
+            "Date": "",
+            "Time": "",
+            "Remarks": ""
+          }
+        ]
       ]
     },
     "BodyConditions": [

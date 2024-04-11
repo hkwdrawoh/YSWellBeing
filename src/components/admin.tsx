@@ -4,6 +4,7 @@ import React from "react";
 
 export default function AdminPage(props: {
     loginPressed: Function
+    goToPage: Function
 }) {
 
     return <>
@@ -24,7 +25,7 @@ export default function AdminPage(props: {
 
             <button
                 className="text-center my-5 grid gap-x-4 gap-y-4 bg-section1 p-4 rounded-lg border-primary border-opacity-50 border-2 w-full"
-                // onClick={() => props.setPage("hi")}
+                onClick={() => props.goToPage("reply-patient", "admin")}
             >
                 <span className="text-text2 text-xl text-left underline">Reply to Patients</span>
                 <span className="text-text2 text-lg">&emsp;</span>
@@ -32,7 +33,7 @@ export default function AdminPage(props: {
 
             <button
                 className="text-center my-5 grid gap-x-4 gap-y-4 bg-section2 p-4 rounded-lg border-primary border-opacity-50 border-2 w-full"
-                // onClick={() => props.setPage(patientID === "0000000" ? "login" : "treatment")}
+                onClick={() => props.goToPage("patient-info", "admin")}
             >
                 <span className="text-text2 text-xl text-left underline">Patient Information</span>
                 <span className="text-text2 text-lg">&emsp;</span>
