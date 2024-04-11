@@ -1,5 +1,4 @@
 import { clientSettings } from "@magicbell/react-headless"
-import { topics } from "@/constants/topics"
 
 type TopicSubscription = {
   topic: string
@@ -31,15 +30,23 @@ class MagicBell {
     if (!userId) {
       return
     }
-    const response = await fetch(`/api/${type}`, {
+    const response = await fetch("https://api.magicbell.com/broadcasts", {
       method: "POST",
+      body: JSON.stringify({
+        "broadcast": {
+          "title": "It's time to take your medicine!",
+          "content": "Remember to take the medicine on time.",
+          "topic": "welcome",
+          "recipients": [{ "external_id": userId}]
+        },
+      }),
       headers: {
-        "Content-Type": "application/json",
+        "X-MAGICBELL-API-KEY": process.env.NEXT_PUBLIC_MAGICBELL_API_KEY,
+        "X-MAGICBELL-API-SECRET": "0ErH7YZfkIeI9sRNN7bkSNjzF2MS4ZtuIzXIsmc3",
       },
-      body: JSON.stringify({ userId }),
     })
-    if (!response.ok) {
-      throw new Error(`Failed to send ${type} notification`)
+    if (!response) {
+      // throw new Error(`Failed to send ${type} notification`)
     }
   }
 
@@ -98,9 +105,6 @@ class MagicBell {
         },
       }),
     }).then((response) => response.json())
-    if (notify) {
-      await this.sendNotification(this.getWelcomeEndpointForTopic(topic))
-    }
   }
 
   /**
@@ -134,19 +138,6 @@ class MagicBell {
     ).then((response) => response.json())
   }
 
-  /**
-   * Each return value needs to correspond to an API file defined in pages/api
-   */
-  private getWelcomeEndpointForTopic(topic: string): NotificationType {
-    switch (topic) {
-      case topics["HN Top Story"].id:
-        return "hn_top_story"
-      case topics["HN Top New"].id:
-        return "hn_top_new"
-      default:
-        return "welcome"
-    }
-  }
 }
 
 const magicBell = new MagicBell()
