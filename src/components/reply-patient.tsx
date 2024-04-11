@@ -1,12 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
+import {replyList} from "@/constants/patients";
+import {formatDate} from "@/components/functions";
 
 
 export default function ReplyPatient() {
 
+    const today = new Date();
+    const yesterday = new Date().setDate(today.getDate() - 1);
+    const [patientID, setPatientID] = useState("");
+
     return <>
         <div className="flex flex-col px-2 py-4 gap-y-4 h-[39em] max-h-[39em]">
             <div>
-                <span>YESTERDAY</span>
+                <span className="text-lg">Record for {formatDate(yesterday)}</span>
             </div>
             <div className="grid grid-cols-9">
                 <span className="font-bold col-span-2">ID</span>
@@ -25,80 +31,16 @@ export default function ReplyPatient() {
                     <span className="col-span-2">0004689</span>
                     <span className="col-span-2">46892</span>
                     <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
+                    <span className="col-span-2 text-section2">No Reply</span>
                 </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
-                <button className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
-                    <span className="col-span-2">0004689</span>
-                    <span className="col-span-2">46892</span>
-                    <span className="col-span-3">Natalie Lai</span>
-                    <span className="col-span-2">Replied</span>
-                </button>
+                {replyList.map((reply) => <>
+                    <div className="grid grid-cols-9 py-2 bg-background1 rounded-lg">
+                        <span className="col-span-2">{reply.ID}</span>
+                        <span className="col-span-2">{reply.CaseNum}</span>
+                        <span className="col-span-3">{reply.Name}</span>
+                        <span className="col-span-2">Replied</span>
+                    </div>
+                </>)}
             </div>
         </div>
     </>

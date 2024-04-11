@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {patientIDs} from "@/constants/patients";
-import {formatDate, formatName} from "@/components/functions";
 
 
 export default function PatientInfo() {
