@@ -5,11 +5,12 @@ import ErrorDiagnostics from "@/components/error-diagnostics";
 // import Footer from "@/components/footer";
 import IosInstructionalStatic from "@/components/ios-instructional-static";
 // import PostSubscribeActions from "@/components/post-subscribe-actions";
-import Subscriber from "@/components/subscriber";
+// import Subscriber from "@/components/subscriber";
 import useDeviceInfo, {DeviceInfo} from "@/hooks/useDeviceInfo";
 import minVersionCheck from "@/utils/minVersionCheck";
 import MainMenu from "@/components/menu";
 import Header from "@/components/header";
+// import Footer from "@/components/footer";
 
 const resendDelay = 10 * 1000;
 const enableSuccessMessage = false;
@@ -54,7 +55,7 @@ export default function Home() {
         setPage(destination);
     }
 
-    function anticipateSubscriptionFailure(info: DeviceInfo) {
+    function checkPWAInstalled(info: DeviceInfo) {
         // if (!info.standalone && info.osName === "Mac OS") return <IosInstructionalStatic />;
         if (info.osName === "iOS") {
             if (minVersionCheck(info.osVersion.toString(), 16, 5)) {
@@ -91,9 +92,16 @@ export default function Home() {
         if (!info) {
             return null;
         }
+
+        // @ts-ignore
+        if (checkPWAInstalled(info)) {
+            // @ts-ignore
+            return checkPWAInstalled(info);
+        }
+
         if (state.status === "success" || info.subscriptionState === "subscribed" || true) {
             return <>
-                <MainMenu page={page} backPage={backPage} goToPage={goToPage}/>
+                <MainMenu page={page} backPage={backPage} goToPage={goToPage} state={state} setState={setState}/>
 
                 {/*
                 <PostSubscribeActions
@@ -112,13 +120,7 @@ export default function Home() {
             </>;
         }
 
-        // @ts-ignore
-        if (anticipateSubscriptionFailure(info)) {
-            // @ts-ignore
-            return anticipateSubscriptionFailure(info);
-        }
-
-        return <Subscriber state={state} setState={setState}/>;
+        // return <Subscriber state={state} setState={setState}/>;
     }
 
     function result(state: State) {
