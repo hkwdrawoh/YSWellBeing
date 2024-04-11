@@ -32,3 +32,15 @@ After visiting the resulting public url on your device, be sure to also install 
 ## Functionalities
 
 TBA...
+
+## Credits
+
+This project is based on a demo by [MagicBell](https://github.com/magicbell-io/webpush-ios-template/tree/main).
+
+Special thanks to the following for the ideas and UI design:
+
+- Crystal Cheang
+- Hadrian Leung
+- Natalie Chan
+- Pail Hung
+- Roger Lai
