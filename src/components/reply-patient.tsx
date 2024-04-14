@@ -6,7 +6,7 @@ import {formatDate} from "@/components/functions";
 export default function ReplyPatient() {
 
     const today = new Date();
-    const yesterday = new Date().setDate(today.getDate() - 1);
+    const yesterday = new Date(today.getTime() - 86400000);
     const [patientID, setPatientID] = useState("");
 
     return <>
