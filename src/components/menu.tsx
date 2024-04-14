@@ -38,7 +38,7 @@ export default function MainMenu(props: {
     const current_treatment = patientData.CurrentTreatment;
     const prescriptions = current_treatment.Prescriptions;
     const today_prescription_index = prescriptions.map((a) => a[0].Date).indexOf(formatDate(today));
-    let todays_record = patientData.BodyConditions.filter((a) => a.RecordDate === formatDate(today));
+    let today_record = patientData.BodyConditions.filter((a) => a.RecordDate === formatDate(today));
 
     function loginPressed() {
         if (patientID === "0000000") {
@@ -147,7 +147,7 @@ export default function MainMenu(props: {
                     onClick={() => props.goToPage(patientID === "0000000" ? "login" : "treatment", "home")}
                 >
                     <span className="text-text2 text-xl text-left underline">Current Treatment</span>
-                    <span className="text-text2 text-lg">{patientID === "0000000" ? "Login to view your treatment." : patientData.CurrentTreatment.SymptomEN + " (" + patientData.CurrentTreatment.SymptomTC + ")"}</span>
+                    <span className="text-text2 text-lg">{patientID === "0000000" ? "Login to view your treatment." : patientData.CurrentTreatment.SymptomEN}</span>
                 </button>
 
                 <button
@@ -155,7 +155,7 @@ export default function MainMenu(props: {
                     onClick={() => props.goToPage(patientID === "0000000" ? "login" : "condition", "home")}
                 >
                     <span className="text-text2 text-xl text-left underline">Today’s Body Condition</span>
-                    <span className="text-text2 text-lg">{patientID === "0000000" ? "Login to record your condition." : (todays_record[0] ? "Recorded, thank you!" : "Condition not recorded!")}</span>
+                    <span className="text-text2 text-lg">{patientID === "0000000" ? "Login to record your condition." : (today_record[0] ? "Recorded, thank you!" : "Condition not recorded!")}</span>
                 </button>
 
                 <button

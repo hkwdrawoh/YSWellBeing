@@ -21,8 +21,8 @@ export default function Info({ info }: { info: DeviceInfo }) {
           window.clearTimeout(timerRef.current)
           timerRef.current = window.setTimeout(() => {
             navigator.clipboard.writeText(
-              info ? JSON.stringify(info, null, 2) : "No info"
-            )
+                info ? JSON.stringify(info, null, 2) : "No info"
+            ).then()
             setToastOpen(true)
           }, 100)
         }}

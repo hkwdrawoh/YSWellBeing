@@ -1,8 +1,7 @@
 import useDeviceInfo from "@/hooks/useDeviceInfo"
-import React, { useState } from "react"
+import React from "react"
 import Info from "./info"
 import * as Collapsible from "@radix-ui/react-collapsible"
-import Image from "next/image"
 
 export default function Footer(props: {
   open: boolean

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import va from "@vercel/analytics"
 
-import useDeviceInfo, { DeviceInfo } from "@/hooks/useDeviceInfo"
+import useDeviceInfo from "@/hooks/useDeviceInfo"
 import { clientSettings } from "@magicbell/react-headless"
 import minVersionCheck from "@/utils/minVersionCheck"
 
@@ -41,6 +41,8 @@ export default function ErrorDiagnostics(props: { error: string }) {
             )
           }
         }
+        break;
+        
       case "mobile": {
         switch (info.osName) {
           case "iOS":
