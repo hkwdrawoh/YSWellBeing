@@ -1,11 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react"
+import React, { useEffect, useMemo } from "react"
 import { useConfig, clientSettings } from "@magicbell/react-headless"
 import { prefetchConfig, registerServiceWorker } from "@magicbell/webpush"
-
 import subscriptionManager from "@/services/subscriptionManager"
-import Button from "@/components/button"
 import { State } from "@/pages"
-import Image from "next/image";
 
 export default function Subscriber({
   state,
@@ -34,8 +31,8 @@ export default function Subscriber({
     if (!subscribeOptions.token) {
       return
     }
-    registerServiceWorker()
-    prefetchConfig(subscribeOptions)
+    registerServiceWorker().then()
+    prefetchConfig(subscribeOptions).then()
   }, [subscribeOptions])
 
   const handleSubscribe = async () => {

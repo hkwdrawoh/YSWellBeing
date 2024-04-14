@@ -23,7 +23,7 @@ export default function RecoveryProgress(props: {
         setSelectedDate(formatDate(date));
     }
 
-    const tileClass = ({ activeStartDate, date, view }) =>
+    const tileClass = ({ date, view }) =>
         view === 'month' && !dates_and_scores.filter((a) => a[0] === formatDate(date))[0] ? null :
             formatDate(date) === selectedDate ? null :
             dates_and_scores.filter((a) => a[0] === formatDate(date))[0][1] === 0 ? 'calendar-option0' :

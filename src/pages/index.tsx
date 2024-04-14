@@ -4,8 +4,6 @@ import React, {useEffect, useState} from "react";
 import ErrorDiagnostics from "@/components/error-diagnostics";
 // import Footer from "@/components/footer";
 import IosInstructionalStatic from "@/components/ios-instructional-static";
-// import PostSubscribeActions from "@/components/post-subscribe-actions";
-// import Subscriber from "@/components/subscriber";
 import useDeviceInfo, {DeviceInfo} from "@/hooks/useDeviceInfo";
 import minVersionCheck from "@/utils/minVersionCheck";
 import MainMenu from "@/components/menu";
@@ -21,8 +19,8 @@ export type State =
     | { status: "unsupported" };
 
 export default function Home() {
-    const [footerOpen, setFooterOpen] = useState(false);
-    const [canResendNotification, setCanResendNotification] = useState(false);
+    // const [footerOpen, setFooterOpen] = useState(false);
+    // const [canResendNotification, setCanResendNotification] = useState(false);
     const [state, setState] = useState<State>({status: "idle"});
     const [backPage, setBackPage] = useState('home');
     const [page, setPage] = useState('home');
@@ -93,34 +91,16 @@ export default function Home() {
             return null;
         }
 
-        // @ts-ignore
         if (checkPWAInstalled(info)) {
-            // @ts-ignore
             return checkPWAInstalled(info);
         }
 
         if (state.status === "success" || info.subscriptionState === "subscribed" || true) {
             return <>
                 <MainMenu page={page} backPage={backPage} goToPage={goToPage} state={state} setState={setState}/>
-
-                {/*
-                <PostSubscribeActions
-                    interactive={canResendNotification}
-                    onAfterInteract={() => {
-                        setCanResendNotification(false);
-                        setTimeout(() => {
-                            setCanResendNotification(true);
-                        }, resendDelay);
-                    }}
-                    onError={(error) => {
-                        setState({status: "error", error});
-                    }}
-                />
-                */}
             </>;
         }
 
-        // return <Subscriber state={state} setState={setState}/>;
     }
 
     function result(state: State) {
@@ -128,7 +108,9 @@ export default function Home() {
             return;
         }
         if (state.status === "error") {
-            return <ErrorDiagnostics error={state.error}></ErrorDiagnostics>;
+            return <div className="p-2">
+                <ErrorDiagnostics error={state.error}></ErrorDiagnostics>
+            </div>;
         }
         if (state.status === "success" && enableSuccessMessage) {
             return (
@@ -150,17 +132,17 @@ export default function Home() {
 
     useEffect(() => {
         if (state.status === "error") {
-            setFooterOpen(true);
+            // setFooterOpen(true);
         }
     }, [state.status]);
 
     useEffect(() => {
         if (state.status === "success") {
             setTimeout(() => {
-                setCanResendNotification(true);
+                // setCanResendNotification(true);
             }, resendDelay);
         } else if (info?.subscriptionState === "subscribed") {
-            setCanResendNotification(true);
+            // setCanResendNotification(true);
         }
     }, [state.status, info?.subscriptionState]);
 
@@ -200,9 +182,8 @@ export default function Home() {
                             <section className="text-center text-text">
                                 {actions(state)}
                             </section>
-                            {result(state)}
+                            {page === "reminder" ? result(state) : null}
                         </div>
-                        {/*<Disclaimer/>*/}
                     </>
                 )}
             </main>
