@@ -154,6 +154,16 @@
     },
     "BodyConditions": [
       {
+        "RecordDate": "13 Apr 2024",
+        "Q1a": 45.3,
+        "Q1b": 115,
+        "Q1c": 69,
+        "Q2": 5,
+        "Q3": 5,
+        "Q4": 5,
+        "Comment": ""
+      },
+      {
         "RecordDate": "17 Apr 2024",
         "Q1a": 45,
         "Q1b": 0,
@@ -171,7 +181,7 @@
         "Q2": 2,
         "Q3": 3,
         "Q4": 2,
-        "Comment": "From your Recovery Progress, it seems that you did not take the medicine regularly. Please kindly revisit the clinic by an appointment ASAP! "
+        "Comment": ""
       }
     ]
   }
