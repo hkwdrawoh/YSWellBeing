@@ -81,7 +81,7 @@
             "Date": "18 Apr 2024",
             "Intake": 2,
             "Time": "11:30",
-            "Remarks": "Expected"
+            "Remarks": "Skipped"
           },
           {
             "Date": "18 Apr 2024",
@@ -154,7 +154,7 @@
     },
     "BodyConditions": [
       {
-        "RecordDate": "17 Mar 2024",
+        "RecordDate": "17 Apr 2024",
         "Q1a": 45,
         "Q1b": 0,
         "Q1c": 0,
