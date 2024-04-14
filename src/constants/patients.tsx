@@ -17,6 +17,20 @@ export const patientIDs = [
 
 export const replyList = [
     {
+        ID: "0002357",
+        CaseNum: "23574",
+        Name: "Roger Chan",
+        LastVisit: "28 Mar 2024",
+        Symptom: "Blood Vacuity"
+    },
+    {
+        ID: "0004689",
+        CaseNum: "46893",
+        Name: "Natalie Lai",
+        LastVisit: "17 Apr 2024",
+        Symptom: "Insomnia"
+    },
+    {
         ID: "0001035",
         CaseNum: "10355",
         Name: "Cynthia Chen",
