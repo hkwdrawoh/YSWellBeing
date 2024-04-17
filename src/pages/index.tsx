@@ -56,12 +56,12 @@ export default function Home() {
     function checkPWAInstalled(info: DeviceInfo) {
         // if (!info.standalone && info.osName === "Mac OS") return <IosInstructionalStatic />;
         if (info.osName === "iOS") {
-            if (minVersionCheck(info.osVersion.toString(), 16, 5)) {
+            if (minVersionCheck(info.osVersion.toString(), 11, 3)) {
                 if (!info.standalone) return <IosInstructionalStatic/>;
             } else {
                 return (
                     <p className="text-center text-red-400 my-6">
-                        This web push notifications demo requires iOS 16.5 or later. Please
+                        This web app requires iOS 11.3 or later. Please
                         run a software update to continue.
                     </p>
                 );
@@ -95,11 +95,9 @@ export default function Home() {
             return checkPWAInstalled(info);
         }
 
-        if (state.status === "success" || info.subscriptionState === "subscribed" || true) {
-            return <>
-                <MainMenu page={page} backPage={backPage} goToPage={goToPage} state={state} setState={setState}/>
-            </>;
-        }
+        return <>
+            <MainMenu page={page} backPage={backPage} goToPage={goToPage} state={state} setState={setState}/>
+        </>;
 
     }
 

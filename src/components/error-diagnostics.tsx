@@ -42,7 +42,7 @@ export default function ErrorDiagnostics(props: { error: string }) {
           }
         }
         break;
-        
+
       case "mobile": {
         switch (info.osName) {
           case "iOS":
@@ -57,7 +57,7 @@ export default function ErrorDiagnostics(props: { error: string }) {
             if (!minVersionCheck(info.osVersion.toString(), 16, 5)) {
               return (
                 <p>
-                  {`It looks like you are using iOS ${info.osVersion}. This demo requires iOS 16.5 or later.`}
+                  {`It looks like you are using iOS ${info.osVersion}. The notification function requires iOS 16.5 or later.`}
                 </p>
               )
             }
