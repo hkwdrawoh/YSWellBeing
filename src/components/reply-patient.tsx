@@ -46,7 +46,7 @@ export default function ReplyPatient() {
             setRecord(Data_0004689.BodyConditions.find((a) => a.RecordDate === yesterday));
             setComment(Data_0004689.BodyConditions.find((a) => a.RecordDate === yesterday).Comment)
         }
-    }, [Data_0002357.BodyConditions, Data_0004689.BodyConditions, patientID, yesterday])
+    }, [])
 
     function saveRecord() {
         if (patientID === "0002357") {
